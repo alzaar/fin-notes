@@ -1,0 +1,3528 @@
+{
+  "meta": {
+    "title": "CFA Level I · Reading 1: Rates and Returns",
+    "subtitle": "Concepts, real-world use, worked financial sheets and 50 practice questions",
+    "source": "Chapter 1.pdf (Modules 1.1–1.3, LOS 1.a–1.e)"
+  },
+  "los": [
+    {
+      "id": "1.a",
+      "title": "Interest rates as required returns and their components",
+      "summary": "Interest rates as required rates of return, discount rates and opportunity costs. The real risk-free rate, inflation, and the default, liquidity and maturity premiums."
+    },
+    {
+      "id": "1.b",
+      "title": "Return over time and average returns",
+      "summary": "Holding period returns, compounding across periods, and the arithmetic, geometric and harmonic means. Which mean to use, and how outliers are handled."
+    },
+    {
+      "id": "1.c",
+      "title": "Money-weighted vs time-weighted returns",
+      "summary": "IRR-based money-weighted return versus chain-linked time-weighted return, and how to choose between them for a manager's performance."
+    },
+    {
+      "id": "1.d",
+      "title": "Annualized and continuously compounded returns",
+      "summary": "Converting holding period returns to annual rates, compounding frequency, effective rates and continuously compounded returns."
+    },
+    {
+      "id": "1.e",
+      "title": "Gross, net, pretax, after-tax, real and leveraged returns",
+      "summary": "The different return measures used in practice and what each one leaves in or takes out."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "c1",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Interest rate as a required rate of return",
+      "definition": "The return investors need to earn before they will willingly lend their money. In equilibrium, a security's interest rate equals the return the market requires for that security's risk.",
+      "formula": null,
+      "why_it_matters": "It tells you the return you should demand, or the most you should be willing to pay, for a given level of risk.",
+      "pitfalls": [
+        "Treating a quoted yield as a guaranteed return. It is the return required for that risk, not a promise of payment."
+      ],
+      "worked_example": {
+        "title": "Required return on Northfield's debt",
+        "steps": [
+          "Each lender needs a return that compensates for the risk and term of its loan. That is the required return.",
+          "Required returns in the debt schedule: 6.50% (bank loan), 6.20% (term loan), 5.00% (2030 bonds), 6.00% (2040 bonds).",
+          "Weighted average cost of debt = total annual interest ÷ total debt = 32.2 ÷ 560 = 5.75%."
+        ]
+      },
+      "manager_case": {
+        "role": "Corporate treasurer, Northfield Components (illustrative)",
+        "situation": "The board approves a $150m bond issue to repay the 6.20% term loan.",
+        "action": "Banks indicate that 10-year bonds of Northfield's rating would require about 5.90%. The treasurer compares that required return with the 6.20% term loan it would replace.",
+        "outcome": "Replacing the loan saves 150 × (6.20% − 5.90%) = $0.45m of interest a year, before fees."
+      },
+      "sheet": {
+        "title": "Debt by instrument and its required return",
+        "caption": "31 Dec 2025, $ millions (fictional company)",
+        "columns": [
+          "Instrument",
+          "Amount",
+          "Required return",
+          "Annual interest"
+        ],
+        "rows": [
+          [
+            "Short-term bank loan (floating)",
+            "60",
+            "6.50%",
+            "3.9"
+          ],
+          [
+            "Term loan due 2029 (floating)",
+            "150",
+            "6.20%",
+            "9.3"
+          ],
+          [
+            "Bonds due 2030 (fixed)",
+            "200",
+            "5.00%",
+            "10.0"
+          ],
+          [
+            "Bonds due 2040 (fixed)",
+            "150",
+            "6.00%",
+            "9.0"
+          ],
+          [
+            "Total / weighted average",
+            "560",
+            "5.75%",
+            "32.2"
+          ]
+        ],
+        "reading_steps": [
+          "Annual interest = amount × required return (150 × 6.20% = 9.3).",
+          "Weighted average = total interest ÷ total debt = 32.2 ÷ 560 = 5.75%.",
+          "Each rate is what that lender required for that instrument's risk and term."
+        ],
+        "takeaway": "Every interest rate on the balance sheet is a required return. Treasurers compare it with what a new issue would cost today."
+      }
+    },
+    {
+      "id": "c2",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Interest rate as a discount rate",
+      "definition": "The rate used to convert future cash flows into an equivalent amount today. In the chapter, interest rates and discount rates are used interchangeably.",
+      "formula": "PV = FV ÷ (1 + r)^N",
+      "why_it_matters": "Every valuation in finance discounts future cash flows at a rate that reflects their risk.",
+      "pitfalls": [
+        "Discounting at the risk-free rate for a risky cash flow. The discount rate should include the risk premium."
+      ],
+      "worked_example": {
+        "title": "Discounting a $1,000 payment at 10%",
+        "steps": [
+          "A payment of $1,000 due in 3 years is discounted at 10% a year.",
+          "PV = 1,000 ÷ 1.10³ = 1,000 ÷ 1.331 = $751.31.",
+          "The discount rate is the required return on money tied up for three years."
+        ]
+      },
+      "manager_case": {
+        "role": "Capital budgeting analyst, Northfield Components (illustrative)",
+        "situation": "A $12m packaging line costs $12m today and is expected to return $5m a year for 3 years.",
+        "action": "The analyst discounts the $5m cash flows at Northfield's 10% hurdle rate: PV = 5 ÷ 1.10 + 5 ÷ 1.10² + 5 ÷ 1.10³ = $12.43m.",
+        "outcome": "PV of $12.43m exceeds the $12m cost, so NPV = +$0.43m and the project passes."
+      },
+      "sheet": {
+        "title": "Packaging line: cash flows discounted at 10%",
+        "caption": "$ millions, end of each year (illustrative project)",
+        "columns": [
+          "Year",
+          "Cash flow",
+          "Discount factor at 10%",
+          "Present value"
+        ],
+        "rows": [
+          [
+            "0",
+            "−12.00",
+            "1.0000",
+            "−12.000"
+          ],
+          [
+            "1",
+            "5.00",
+            "0.9091",
+            "4.545"
+          ],
+          [
+            "2",
+            "5.00",
+            "0.8264",
+            "4.132"
+          ],
+          [
+            "3",
+            "5.00",
+            "0.7513",
+            "3.757"
+          ],
+          [
+            "NPV",
+            "",
+            "",
+            "+0.434"
+          ]
+        ],
+        "reading_steps": [
+          "Present value = cash flow × discount factor, where the factor is 1 ÷ 1.10^year.",
+          "Add the present values of the inflows (4.545 + 4.132 + 3.757 = 12.434) and subtract the cost (12.000): NPV = +0.434.",
+          "A positive NPV means the project earns more than the 10% required return."
+        ],
+        "takeaway": "Discounting turns future dollars into today's dollars so projects with different timing can be compared."
+      }
+    },
+    {
+      "id": "c3",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Interest rate as the opportunity cost of consumption",
+      "definition": "Spending money now means giving up the interest you could have earned by saving it. The interest rate measures that forgone return.",
+      "formula": null,
+      "why_it_matters": "Explains why people need to be paid to save and why high rates make spending today more expensive.",
+      "pitfalls": [
+        "Forgetting that the opportunity cost is the earnings lost, not the amount spent."
+      ],
+      "worked_example": {
+        "title": "What holding cash costs",
+        "steps": [
+          "$1,000 saved for one year at a 5% market rate earns $50.",
+          "Spending the $1,000 today gives up that $50.",
+          "The $50 is the opportunity cost of spending now rather than saving."
+        ]
+      },
+      "manager_case": {
+        "role": "Treasurer, Northfield Components (illustrative), managing cash",
+        "situation": "$60m of cash sits in bank deposits earning 0.50%, while 1-year T-bills yield 4.50%.",
+        "action": "The treasurer treats the 4.00-point gap as the opportunity cost of idle cash: 60 × 4.00% = $2.4m a year.",
+        "outcome": "She keeps $10m for operations and moves $50m into T-bills, adding about $2.0m a year of income (50 × 4.00%)."
+      },
+      "sheet": {
+        "title": "Northfield's cash and T-bills: what each earns",
+        "caption": "31 Dec 2025, $ millions. Yields illustrative.",
+        "columns": [
+          "Asset",
+          "Balance",
+          "Yield",
+          "Annual income"
+        ],
+        "rows": [
+          [
+            "Cash & equivalents (bank deposits)",
+            "60",
+            "0.50%",
+            "0.30"
+          ],
+          [
+            "Short-term T-bills",
+            "40",
+            "4.50%",
+            "1.80"
+          ],
+          [
+            "Total",
+            "100",
+            "2.10% blended",
+            "2.10"
+          ]
+        ],
+        "reading_steps": [
+          "Annual income = balance × yield (60 × 0.50% = 0.30).",
+          "Opportunity cost of holding the 60 as cash = (4.50% − 0.50%) × 60 = $2.4m a year.",
+          "Blended yield = 2.10 ÷ 100 = 2.10%, well below what the T-bills alone would earn."
+        ],
+        "takeaway": "Idle cash on the balance sheet looks safe, but it carries a real opportunity cost."
+      }
+    },
+    {
+      "id": "c4",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Real risk-free rate and time preference",
+      "definition": "The theoretical return on a single-period loan with no expected inflation and no chance of default. It reflects time preference: how strongly people prefer consuming today over the same consumption later.",
+      "formula": null,
+      "why_it_matters": "It is the economic core of every interest rate: the price of waiting.",
+      "pitfalls": [
+        "Expecting to observe it directly. It is theoretical; analysts approximate it with inflation-indexed government bonds."
+      ],
+      "worked_example": {
+        "title": "Nominal vs real yield",
+        "steps": [
+          "A 1-year Treasury yields 4.50% nominal, and expected inflation is 2.50%.",
+          "Real yield (exact) = 1.045 ÷ 1.025 − 1 = 1.95%.",
+          "The real yield is what waiting pays in purchasing power after inflation, which is time preference in real terms."
+        ]
+      },
+      "manager_case": {
+        "role": "Chief investment officer, corporate pension plan (illustrative)",
+        "situation": "The plan owes retirees inflation-linked pensions for about 20 years.",
+        "action": "The CIO uses the real yield on inflation-indexed government bonds (about 2.0%) as the real risk-free rate for valuing those liabilities.",
+        "outcome": "A 0.5-point fall in real yields raises the liability's value by about 10% (0.5% × 20-year duration), so the funding gap widens and contributions must rise."
+      },
+      "sheet": {
+        "title": "Nominal vs real yield",
+        "caption": "Illustrative 1-year Treasury and inflation expectations",
+        "columns": [
+          "Item",
+          "Rate",
+          "Approximation (nominal − inflation)",
+          "Exact ((1 + nominal) ÷ (1 + inflation) − 1)"
+        ],
+        "rows": [
+          [
+            "Nominal Treasury yield",
+            "4.50%",
+            "—",
+            "—"
+          ],
+          [
+            "Expected inflation",
+            "2.50%",
+            "—",
+            "—"
+          ],
+          [
+            "Real risk-free rate",
+            "—",
+            "2.00%",
+            "1.95%"
+          ]
+        ],
+        "reading_steps": [
+          "The approximation subtracts inflation; the exact method divides by (1 + inflation).",
+          "The difference (2.00% vs 1.95%) is small here but grows as inflation rises."
+        ],
+        "takeaway": "Real yields show what waiting pays in purchasing power, which is the unit pension liabilities are measured in."
+      }
+    },
+    {
+      "id": "c5",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Inflation premium and the Fisher relation",
+      "definition": "The extra return lenders demand to offset expected loss of purchasing power. The exact relation links nominal, real and expected inflation rates; the common approximation adds them.",
+      "formula": "(1 + nominal) = (1 + real) × (1 + expected inflation)\nnominal ≈ real + expected inflation",
+      "why_it_matters": "Separates how much money grows from how much purchasing power grows.",
+      "pitfalls": [
+        "Using the approximation when inflation or rates are high. Use the exact form when the answer must be precise."
+      ],
+      "worked_example": {
+        "title": "Real growth from a nominal target",
+        "steps": [
+          "Nominal growth target = 7.0%; expected inflation = 2.5%.",
+          "Exact real growth = 1.07 ÷ 1.025 − 1 = 4.39%.",
+          "The shortcut 7.0 − 2.5 = 4.5% overstates real growth slightly."
+        ]
+      },
+      "manager_case": {
+        "role": "CFO, Northfield Components (illustrative)",
+        "situation": "The 2026 plan calls for 7% revenue growth in cash terms; the economy expects 2.5% inflation.",
+        "action": "The CFO splits the target into price (inflation, 2.5%) and volume (real growth, 4.39%) and sets separate sales targets for each.",
+        "outcome": "Pricing covers inflation, and the board can see whether revenue growth comes from price or from selling more units."
+      },
+      "sheet": {
+        "title": "Northfield 2026 revenue target: nominal vs real",
+        "caption": "$ millions, based on 2025 revenue of 1,200 (illustrative)",
+        "columns": [
+          "Line",
+          "Nominal dollars",
+          "Real (2025 dollars)"
+        ],
+        "rows": [
+          [
+            "2025 revenue",
+            "1,200.0",
+            "1,200.0"
+          ],
+          [
+            "2026 target (+7.0% nominal)",
+            "1,284.0",
+            "1,252.7"
+          ],
+          [
+            "Growth",
+            "+7.00%",
+            "+4.39%"
+          ]
+        ],
+        "reading_steps": [
+          "2026 nominal target = 1,200 × 1.07 = 1,284.0.",
+          "Real 2026 revenue = 1,284.0 ÷ 1.025 = 1,252.7, in 2025 dollars.",
+          "The gap between +7.00% and +4.39% is inflation: the same inflation premium lenders build into interest rates."
+        ],
+        "takeaway": "Nominal growth overstates what the business actually sold; real growth is the honest measure."
+      }
+    },
+    {
+      "id": "c6",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Nominal risk-free rate (Treasury bills)",
+      "definition": "The yield on short-term government securities such as U.S. T-bills. They carry negligible default risk and are very liquid, so they are the benchmark risk-free rate, but they include an inflation premium, which makes them nominal rather than real.",
+      "formula": null,
+      "why_it_matters": "It is the starting point for building up any other interest rate.",
+      "pitfalls": [
+        "Calling a T-bill yield a real return. It still contains expected inflation."
+      ],
+      "worked_example": {
+        "title": "A T-bill as the benchmark",
+        "steps": [
+          "A 3-month T-bill yields 4.50% with essentially no default risk.",
+          "With expected inflation of 2.50%, its real return is about 2.00%.",
+          "Any riskier short-term instrument must yield more than 4.50% to be worth holding."
+        ]
+      },
+      "manager_case": {
+        "role": "Portfolio manager, money-market fund (illustrative)",
+        "situation": "The fund must stay liquid and default-free for clients who treat it as cash.",
+        "action": "The manager benchmarks the fund to T-bill yields and buys commercial paper only if it pays at least 0.30% over T-bills.",
+        "outcome": "A-rated paper at 4.90% pays 0.40% over T-bills, so it qualifies; the fund's yield tracks the benchmark closely."
+      },
+      "sheet": {
+        "title": "Short-term instruments compared with the T-bill benchmark",
+        "caption": "Yields illustrative, 31 Dec 2025, $ millions",
+        "columns": [
+          "Instrument",
+          "Balance",
+          "Yield",
+          "Spread over T-bills"
+        ],
+        "rows": [
+          [
+            "Short-term T-bills (on balance sheet)",
+            "40",
+            "4.50%",
+            "0.00%"
+          ],
+          [
+            "A-rated commercial paper (not held)",
+            "—",
+            "4.90%",
+            "+0.40%"
+          ],
+          [
+            "Bank deposits (in cash & equivalents)",
+            "60",
+            "0.50%",
+            "−4.00%"
+          ]
+        ],
+        "reading_steps": [
+          "The T-bill is the benchmark: every spread is measured against 4.50%.",
+          "The +0.40% on commercial paper compensates for default and liquidity risk relative to the T-bill.",
+          "Bank deposits earn far less than T-bills, which is the opportunity cost from the cash example."
+        ],
+        "takeaway": "T-bills define the risk-free benchmark, so spreads show how much risk each short-term investment is paid for."
+      }
+    },
+    {
+      "id": "c7",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Default risk and default risk premium",
+      "definition": "The risk that a borrower does not make promised payments on time. Lenders add a default risk premium to compensate.",
+      "formula": null,
+      "why_it_matters": "It is why corporate bonds yield more than Treasuries of the same maturity.",
+      "pitfalls": [
+        "Assuming the premium is a free extra return. It is compensation for the chance of loss."
+      ],
+      "worked_example": {
+        "title": "Does a 1.6% spread cover default losses?",
+        "steps": [
+          "Annual default probability = 2%; recovery rate = 40%, so loss given default = 60%.",
+          "Expected loss = 2% × 60% = 1.2% a year.",
+          "The bond yields 1.6% above Treasuries, so the spread covers the expected loss with a 0.4% cushion."
+        ]
+      },
+      "manager_case": {
+        "role": "Credit analyst, fixed-income fund (illustrative)",
+        "situation": "A 5-year bond from a mid-size retailer yields 6.6%, against 5.0% for Treasuries of the same maturity.",
+        "action": "The analyst estimates a 2% annual default probability with 40% recovery, so expected loss is 1.2% a year, and checks that the 1.6% spread covers it.",
+        "outcome": "The bond passes with a thin cushion. The analyst caps the position, because a recession raises default probabilities and widens spreads."
+      },
+      "sheet": {
+        "title": "Northfield's receivables: expected credit loss by customer group",
+        "caption": "31 Dec 2025, $ millions. Default and recovery assumptions illustrative.",
+        "columns": [
+          "Customer group",
+          "Receivables",
+          "Annual default probability",
+          "Loss given default",
+          "Expected loss"
+        ],
+        "rows": [
+          [
+            "Large retailers",
+            "60",
+            "1%",
+            "50%",
+            "0.30"
+          ],
+          [
+            "Mid-size distributors",
+            "50",
+            "3%",
+            "60%",
+            "0.90"
+          ],
+          [
+            "Small contractors",
+            "20",
+            "6%",
+            "70%",
+            "0.84"
+          ],
+          [
+            "Total",
+            "130",
+            "",
+            "",
+            "2.04 (1.57% of receivables)"
+          ]
+        ],
+        "reading_steps": [
+          "Expected loss = receivables × default probability × loss given default (for example, 50 × 3% × 60% = 0.90).",
+          "Total expected loss 2.04 ÷ 130 = 1.57%: the default premium this book would need to earn.",
+          "Small contractors have the highest expected loss rate, so they carry the largest default premium."
+        ],
+        "takeaway": "Default risk premiums are the expected losses you must price in before any return is earned."
+      }
+    },
+    {
+      "id": "c8",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Liquidity risk and liquidity premium",
+      "definition": "The risk of receiving less than fair value when an investment must be sold quickly for cash. The liquidity premium compensates investors for this.",
+      "formula": null,
+      "why_it_matters": "Illiquid assets must offer higher expected returns to attract buyers.",
+      "pitfalls": [
+        "Ignoring liquidity when comparing a private investment with a listed one that has the same cash flows."
+      ],
+      "worked_example": {
+        "title": "What a forced sale costs",
+        "steps": [
+          "Selling $10m of a thinly traded bond at a 1.5% discount to fair value costs 10m × 1.5% = $150,000.",
+          "Selling $10m of T-bills at a 0.05% cost costs $5,000.",
+          "The $145,000 difference is the cost of illiquidity, which the bond must earn back through a liquidity premium."
+        ]
+      },
+      "manager_case": {
+        "role": "Head of fixed income, wealth-management firm (illustrative)",
+        "situation": "A client needs $5m in 30 days. Her portfolio holds $5m of thinly traded corporate bonds and $5m of T-bills.",
+        "action": "The manager sells the T-bills first. Selling the bonds would concede about 1.5% of value, roughly $75,000.",
+        "outcome": "The T-bill sale costs about $2,500 and the bonds stay in the portfolio. The bonds were bought at a higher yield to pay for exactly this risk."
+      },
+      "sheet": {
+        "title": "Northfield's assets ranked by how quickly they turn into cash",
+        "caption": "31 Dec 2025, $ millions",
+        "columns": [
+          "Asset",
+          "Balance",
+          "Time to sell at fair value",
+          "Liquidity premium needed?"
+        ],
+        "rows": [
+          [
+            "Cash & equivalents",
+            "60",
+            "Same day",
+            "No"
+          ],
+          [
+            "Short-term T-bills",
+            "40",
+            "1 day",
+            "No"
+          ],
+          [
+            "Accounts receivable",
+            "130",
+            "1–3 months (collection)",
+            "Small"
+          ],
+          [
+            "Inventory",
+            "170",
+            "3–12 months",
+            "Yes"
+          ],
+          [
+            "Long-term investments",
+            "100",
+            "5+ years if unlisted",
+            "Yes"
+          ]
+        ],
+        "reading_steps": [
+          "Read top to bottom: the longer an asset takes to convert, the more liquidity premium it should earn.",
+          "Inventory and long-term investments hold 270 of Northfield's 1,000 of assets; forced sales would lose value.",
+          "Current ratio 2.35 looks healthy, but the quick ratio without inventory is 1.35 ((60 + 40 + 130) ÷ 170)."
+        ],
+        "takeaway": "Liquidity is about how fast an asset turns into cash at fair value, not just what it is worth on paper."
+      }
+    },
+    {
+      "id": "c9",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Maturity risk and maturity premium",
+      "definition": "Longer-term bond prices move more for a given change in interest rates, so longer maturities carry a maturity risk premium.",
+      "formula": null,
+      "why_it_matters": "Explains why a 30-year Treasury usually yields more than a 3-month T-bill, and why long bonds can lose more value when rates rise.",
+      "pitfalls": [
+        "Treating the maturity premium as guaranteed. The yield curve can be flat or inverted."
+      ],
+      "worked_example": {
+        "title": "Price sensitivity of two bonds to a 1-point rate rise",
+        "steps": [
+          "The 5-year bond (5.0% coupon) is priced at par, 100.00. If yields rise to 6.0%, its price falls to 95.79: a −4.21% change.",
+          "The 15-year bond (6.0% coupon) is priced at par, 100.00. If yields rise to 7.0%, its price falls to 90.89: a −9.11% change.",
+          "Price change ≈ −(modified duration) × (change in yield). The 15-year bond's sensitivity is about twice the 5-year bond's."
+        ]
+      },
+      "manager_case": {
+        "role": "Treasurer, Northfield Components (illustrative)",
+        "situation": "Northfield must refinance $150m. Option A: 5-year notes at 5.00%. Option B: 15-year bonds at 6.00%.",
+        "action": "The treasurer weighs the coupon against maturity risk. A 1-point rise in market yields would cut the market value of the 15-year bonds by 9.11% (about $13.7m on $150m), against 4.21% (about $6.3m) for the 5-year notes. She chooses the 5-year notes and plans cash reserves for the 2030 refinancing.",
+        "outcome": "The company pays 1.0 point less coupon, cuts its exposure to rate moves, and accepts refinancing risk in 2030, which the reserves cover."
+      },
+      "sheet": {
+        "title": "Northfield debt: maturity and price sensitivity",
+        "caption": "31 Dec 2025, $ millions. Price change assumes yields rise 1 point.",
+        "columns": [
+          "Instrument",
+          "Amount",
+          "Years to maturity",
+          "Coupon",
+          "Price change if yields +1%",
+          "Change in value"
+        ],
+        "rows": [
+          [
+            "Short-term bank loan",
+            "60",
+            "<1",
+            "floating",
+            "≈ 0%",
+            "≈ 0"
+          ],
+          [
+            "Term loan due 2029",
+            "150",
+            "4",
+            "floating",
+            "≈ 0%",
+            "≈ 0"
+          ],
+          [
+            "Bonds due 2030",
+            "200",
+            "5",
+            "5.00%",
+            "−4.21%",
+            "−8.4"
+          ],
+          [
+            "Bonds due 2040",
+            "150",
+            "15",
+            "6.00%",
+            "−9.11%",
+            "−13.7"
+          ],
+          [
+            "Total change in market value",
+            "",
+            "",
+            "",
+            "",
+            "−22.1"
+          ]
+        ],
+        "reading_steps": [
+          "Longer maturity means a bigger price change for the same rate move: 15 years gives about twice the sensitivity of 5 years.",
+          "Floating-rate debt reprices with the base rate, so its value barely moves. The 2040 bonds drive most of the risk (−13.7 of −22.1).",
+          "Within 5 years, 410 of 560 of debt (73%) matures. That is refinancing risk: the trade-off for choosing shorter maturities."
+        ],
+        "takeaway": "Maturity risk is price sensitivity to rate moves, and it rises with the time left to maturity."
+      }
+    },
+    {
+      "id": "c10",
+      "los": "1.a",
+      "source": "chapter",
+      "name": "Build-up of a nominal interest rate",
+      "definition": "A nominal interest rate can be decomposed into the real risk-free rate, an inflation premium, a default risk premium, a liquidity premium and a maturity premium.",
+      "formula": "Nominal rate ≈ real risk-free + inflation + default + liquidity + maturity",
+      "why_it_matters": "It shows which risks you are actually being paid for. If the spread does not cover the risk, the investment is unattractive.",
+      "pitfalls": [
+        "Assuming each premium is always present. A given security may have none of them."
+      ],
+      "worked_example": {
+        "title": "Building up a 5-year BBB bond's required return",
+        "steps": [
+          "Real risk-free rate = 2.00%.",
+          "Add the inflation premium (2.50%), default premium (1.00%), liquidity premium (0.50%) and maturity premium (0.80%).",
+          "Nominal required return = 2.00 + 2.50 + 1.00 + 0.50 + 0.80 = 6.80%."
+        ]
+      },
+      "manager_case": {
+        "role": "Corporate treasurer, Northfield Components (illustrative)",
+        "situation": "Underwriters propose pricing a 5-year BBB issue at 6.80%.",
+        "action": "The treasurer rebuilds the 6.80% from its components. She asks why the default premium is 1.00% when the company's last similar issue carried 0.60%. The underwriters point to wider market spreads that quarter.",
+        "outcome": "She accepts the price after checking each component, and records the build-up in the funding memo so the board can see what it is paying for."
+      },
+      "sheet": {
+        "title": "Build-up of a 5-year BBB bond's required return",
+        "caption": "Illustrative components",
+        "columns": [
+          "Component",
+          "Rate",
+          "What it compensates for"
+        ],
+        "rows": [
+          [
+            "Real risk-free rate",
+            "2.00%",
+            "Time preference"
+          ],
+          [
+            "Inflation premium",
+            "2.50%",
+            "Loss of purchasing power"
+          ],
+          [
+            "Default risk premium",
+            "1.00%",
+            "Chance the issuer misses payments"
+          ],
+          [
+            "Liquidity premium",
+            "0.50%",
+            "Difficulty of selling quickly at fair value"
+          ],
+          [
+            "Maturity premium",
+            "0.80%",
+            "Price sensitivity over 5 years"
+          ],
+          [
+            "Nominal required return",
+            "6.80%",
+            "Sum of the components"
+          ]
+        ],
+        "reading_steps": [
+          "Read top to bottom: the first two rows are base compensation; the last three are risk premiums.",
+          "Ask which premium you are not being paid for. A 1.00% default premium on a bond with 0.60% expected loss leaves a margin.",
+          "A 5-year Treasury has no default or liquidity premium, so it yields less than this bond."
+        ],
+        "takeaway": "The build-up shows which risks you are paid for; if a premium does not cover its risk, the bond is unattractive."
+      }
+    },
+    {
+      "id": "c11",
+      "los": "1.a",
+      "source": "added",
+      "name": "Time value of money: present and future value",
+      "definition": "A dollar today is worth more than a dollar in the future because it can earn interest. Future value (FV) compounds a present amount forward. Present value (PV) discounts a future amount back.",
+      "formula": "FV = PV × (1 + r)^N\nPV = FV ÷ (1 + r)^N",
+      "why_it_matters": "Every discounting and compounding step in Reading 1 is a version of this formula. It is the foundation for the rest of the CFA curriculum.",
+      "pitfalls": [
+        "Mismatching units: an annual rate with a monthly number of periods, or a quarterly rate with annual periods."
+      ],
+      "worked_example": {
+        "title": "Future and present value of $100m and $10m",
+        "steps": [
+          "Future value: FV = PV × (1 + r)^N = 100 × 1.06⁵ = 100 × 1.3382 = $133.82m.",
+          "Present value runs the other way: $10m due in 10 years at 5% is worth 10 ÷ 1.05¹⁰ = $6.14m today.",
+          "PV falls as the discount rate rises or the payment is further away."
+        ]
+      },
+      "manager_case": {
+        "role": "Pension fund actuary (illustrative)",
+        "situation": "The plan owes two $10m payments: one in 5 years and one in 10 years.",
+        "action": "The actuary discounts both at 5% to find what the plan must hold today: $7.84m and $6.14m. She repeats the calculation at 6%: $7.47m and $5.58m.",
+        "outcome": "At 5% the plan must hold $13.98m; at 6% only $13.05m. The discount rate alone moves the funding requirement by about $0.9m."
+      },
+      "sheet": {
+        "title": "Present value of two $10m obligations",
+        "caption": "$ millions. Payments due in 5 and 10 years (illustrative).",
+        "columns": [
+          "Payment due",
+          "Amount",
+          "PV at 5%",
+          "PV at 6%"
+        ],
+        "rows": [
+          [
+            "In 5 years",
+            "10.00",
+            "7.84",
+            "7.47"
+          ],
+          [
+            "In 10 years",
+            "10.00",
+            "6.14",
+            "5.58"
+          ]
+        ],
+        "reading_steps": [
+          "PV = amount ÷ (1 + r)^years. The 5-year PV at 5% is 10 ÷ 1.2763 = 7.84.",
+          "Read across: the later payment is worth less today at either rate.",
+          "Read down: a higher discount rate lowers each present value, so the plan needs less money today."
+        ],
+        "takeaway": "Discounting converts future obligations into today's funding need, and the rate chosen drives the answer."
+      }
+    },
+    {
+      "id": "c12",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Holding period return (HPR)",
+      "definition": "The percentage change in an investment's value over a period, including any income such as dividends received during that period.",
+      "formula": "HPR = (P_end + Dividends − P_begin) ÷ P_begin",
+      "why_it_matters": "It is the building block for every other return measure in the chapter.",
+      "pitfalls": [
+        "Leaving out dividends or interest received during the period.",
+        "Treating an HPR over a non-annual period as an annual rate."
+      ],
+      "worked_example": {
+        "title": "HPR on one holding",
+        "steps": [
+          "Bought at $20 per share; received a $1 dividend; sold at $22.",
+          "HPR = (22 + 1 − 20) ÷ 20 = 3 ÷ 20 = 15%.",
+          "The dividend is part of the return, so it must be counted, not ignored."
+        ]
+      },
+      "manager_case": {
+        "role": "Investment analyst, university endowment (illustrative)",
+        "situation": "The endowment holds 10,000 shares bought at $20. Over the year it received $1 a share in dividends and sold at $22.",
+        "action": "The analyst computes the 15% HPR and compares it with the endowment's benchmark, which returned 12% over the same period.",
+        "outcome": "The holding beat the benchmark by 3 points, supporting a decision to keep the position and review it next quarter."
+      },
+      "sheet": {
+        "title": "Holding statement: one position, one year",
+        "caption": "10,000 shares, $ (illustrative)",
+        "columns": [
+          "Event",
+          "Price per share",
+          "Cash flow ($)",
+          "Position value ($)"
+        ],
+        "rows": [
+          [
+            "Purchase, Jan 2025",
+            "$20.00",
+            "−200,000",
+            "200,000"
+          ],
+          [
+            "Dividend received",
+            "$1.00",
+            "+10,000",
+            "—"
+          ],
+          [
+            "Sale, Dec 2025",
+            "$22.00",
+            "+220,000",
+            "—"
+          ],
+          [
+            "Total gain: 230,000 − 200,000",
+            "",
+            "+30,000",
+            "HPR = 15.00%"
+          ]
+        ],
+        "reading_steps": [
+          "Total cash in = dividend 10,000 + sale 220,000 = 230,000.",
+          "Gain = 230,000 − 200,000 = 30,000.",
+          "HPR = 30,000 ÷ 200,000 = 15.00%."
+        ],
+        "takeaway": "HPR captures everything the investor earned over the holding period, income and price change together."
+      }
+    },
+    {
+      "id": "c13",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Multi-period return: compounding HPRs",
+      "definition": "Returns over successive periods multiply rather than add. The total return is the product of (1 + HPR) for each period, minus 1.",
+      "formula": "HPR_total = (1 + HPR₁) × (1 + HPR₂) × … × (1 + HPRₙ) − 1",
+      "why_it_matters": "Explains why losses hurt more than the simple average suggests and why multi-year returns are not sums.",
+      "pitfalls": [
+        "Adding HPRs across years instead of multiplying the growth factors."
+      ],
+      "worked_example": {
+        "title": "Three-year return from three annual HPRs",
+        "steps": [
+          "Annual HPRs: +15.00%, −15.91%, +36.11%.",
+          "Growth factors multiply: 1.1500 × 0.8409 × 1.3611 = 1.3163.",
+          "Three-year return = 31.63%. Adding the HPRs (15 − 15.91 + 36.11 = 35.20%) overstates it."
+        ]
+      },
+      "manager_case": {
+        "role": "Performance reporting analyst, fund company (illustrative)",
+        "situation": "The marketing team wants to report a 3-year return of 35.2%, the sum of the annual returns.",
+        "action": "The reporting analyst chain-links the annual returns to 31.63%, because investors' money compounds, not adds.",
+        "outcome": "The report shows 31.6% over three years, which matches what $10,000 actually grew to: $13,163."
+      },
+      "sheet": {
+        "title": "Three-year track record: chain-linking",
+        "caption": "Annual HPRs from the holding above (illustrative stock)",
+        "columns": [
+          "Year",
+          "HPR",
+          "Growth factor (1 + HPR)",
+          "Cumulative growth"
+        ],
+        "rows": [
+          [
+            "1",
+            "15.00%",
+            "1.1500",
+            "1.1500"
+          ],
+          [
+            "2",
+            "−15.91%",
+            "0.8409",
+            "0.9670"
+          ],
+          [
+            "3",
+            "36.11%",
+            "1.3611",
+            "1.3163"
+          ]
+        ],
+        "reading_steps": [
+          "Growth factor = 1 + HPR. Multiply the factors year by year to get the cumulative growth.",
+          "Cumulative growth after 3 years = 1.3163, so the return is 31.63%.",
+          "Annualized = 1.3163^(1/3) − 1 = 9.59%."
+        ],
+        "takeaway": "Multiply growth factors, never add HPRs."
+      }
+    },
+    {
+      "id": "c14",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Arithmetic mean return",
+      "definition": "The simple average of a series of periodic returns. It is an unbiased estimator of the true mean of the return distribution and it includes outliers.",
+      "formula": "Arithmetic mean = (R₁ + R₂ + … + Rₙ) ÷ n",
+      "why_it_matters": "It is the best estimate of the expected return for a single future period, which is why it is used in forecasting.",
+      "pitfalls": [
+        "Using it to describe compound growth over several periods. It overstates the compound rate when returns vary."
+      ],
+      "worked_example": {
+        "title": "Arithmetic average of three HPRs",
+        "steps": [
+          "HPRs: 15.00%, −15.91%, 36.11%.",
+          "Arithmetic mean = (15.00 − 15.91 + 36.11) ÷ 3 = 35.20 ÷ 3 = 11.73%.",
+          "This is the average of one typical year, not the rate that grew the money."
+        ]
+      },
+      "manager_case": {
+        "role": "Capital-markets assumptions team, wealth-management firm (illustrative)",
+        "situation": "Advisers need an expected return for next year to feed a client model.",
+        "action": "The team uses the arithmetic mean of past annual returns (11.73%) as a single-year expected return, because it is an unbiased estimate of the mean of the return distribution.",
+        "outcome": "Multi-year goal planning uses the geometric rate (9.59%) instead, so the two inputs are not mixed up."
+      },
+      "sheet": {
+        "title": "Same three years, two averages",
+        "caption": "From the track record above",
+        "columns": [
+          "Measure",
+          "Calculation",
+          "Result",
+          "Use it for"
+        ],
+        "rows": [
+          [
+            "Arithmetic mean",
+            "(15.00 − 15.91 + 36.11) ÷ 3",
+            "11.73%",
+            "Expected return for one future year"
+          ],
+          [
+            "Geometric mean",
+            "1.3163^(1/3) − 1",
+            "9.59%",
+            "Compound growth over the period"
+          ]
+        ],
+        "reading_steps": [
+          "The arithmetic mean is higher because it ignores the drag from the −15.91% year.",
+          "$1,000 compounding at 11.73% for 3 years is about $1,395; at the true compound rate it is $1,316.30."
+        ],
+        "takeaway": "Use the arithmetic mean to estimate one period; use the geometric mean to describe compound growth."
+      }
+    },
+    {
+      "id": "c15",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Geometric mean return",
+      "definition": "The compound rate per period that gives the same ending value as the actual sequence of returns. It is always less than or equal to the arithmetic mean, and equal only when returns do not vary.",
+      "formula": "Geometric mean = [(1 + R₁)(1 + R₂)…(1 + Rₙ)]^(1/n) − 1",
+      "why_it_matters": "It is the rate that describes how $1 actually grew.",
+      "pitfalls": [
+        "Using the arithmetic mean to project a portfolio's growth. It will overstate the ending value."
+      ],
+      "worked_example": {
+        "title": "Compound annual rate",
+        "steps": [
+          "Growth over three years: 1.3163.",
+          "Geometric mean = 1.3163^(1/3) − 1 = 1.0959 − 1 = 9.59%.",
+          "Check: 1.0959³ ≈ 1.3163, so $1 grows to the same value at 9.59% a year."
+        ]
+      },
+      "manager_case": {
+        "role": "Retirement planner, wealth-management firm (illustrative)",
+        "situation": "A client's portfolio has the track record above. The planner projects a $100,000 balance over 10 years.",
+        "action": "The planner uses the geometric mean (9.59%) for compound projections. The arithmetic mean (11.73%) would overstate the balance.",
+        "outcome": "At 9.59% the balance reaches about $249,867 in 10 years; at 11.73% it would show $303,178, overstating the plan by about $53,000."
+      },
+      "sheet": {
+        "title": "Projecting $100,000: geometric vs arithmetic rate",
+        "caption": "Starting balance $100,000; rates from the track record above",
+        "columns": [
+          "Year",
+          "Balance at 9.59% (geometric)",
+          "Balance at 11.73% (arithmetic)",
+          "Overstatement"
+        ],
+        "rows": [
+          [
+            "1",
+            "109,590",
+            "111,730",
+            "2,140"
+          ],
+          [
+            "5",
+            "158,072",
+            "174,120",
+            "16,048"
+          ],
+          [
+            "10",
+            "249,867",
+            "303,178",
+            "53,311"
+          ]
+        ],
+        "reading_steps": [
+          "Balance = 100,000 × (1 + rate)^years.",
+          "The gap widens every year, because the arithmetic rate compounds an overstated growth factor.",
+          "Use the geometric rate for multi-year projections."
+        ],
+        "takeaway": "Projecting with the arithmetic mean overstates the future balance, and the error compounds."
+      }
+    },
+    {
+      "id": "c16",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Geometric mean vs annual return for non-annual periods",
+      "definition": "The geometric mean takes the root equal to the number of periods. To get an annual rate, the root must equal the number of years.",
+      "formula": "Annual return = [Π(1 + HPR_semiannual)]^(1/years) − 1  (four half-years → root of 2)",
+      "why_it_matters": "Reporting a per-period compound rate as if it were annual is a common mistake.",
+      "pitfalls": [
+        "Reporting the half-year geometric mean (0.74%) as the annual rate. Four half-years make two years, so the annual rate is about 1.49%."
+      ],
+      "worked_example": {
+        "title": "Annualizing four half-year returns",
+        "steps": [
+          "Half-year returns: 2.0%, 0.5%, −1.0%, 1.5%.",
+          "Growth over the four half-years: 1.02 × 1.005 × 0.99 × 1.015 = 1.0301.",
+          "Four half-years are two years, so the annual rate uses root 2: 1.0301^(1/2) − 1 = 1.49%."
+        ]
+      },
+      "manager_case": {
+        "role": "Fund reporter, bond-fund company (illustrative)",
+        "situation": "The fund reports every six months and must show an annual figure in its shareholder report.",
+        "action": "The reporter computes the per-half-year geometric mean (0.74%), recognizes it is not an annual rate, and annualizes with root 2 (1.49%).",
+        "outcome": "The report shows 1.49% for the year. Doubling the 0.74% half-year figure would have shown 1.48%, which ignores compounding."
+      },
+      "sheet": {
+        "title": "Half-year returns, annualized",
+        "caption": "Four 6-month holding period returns (illustrative)",
+        "columns": [
+          "Half-year",
+          "HPR",
+          "Growth factor",
+          "Cumulative growth"
+        ],
+        "rows": [
+          [
+            "1",
+            "2.00%",
+            "1.0200",
+            "1.0200"
+          ],
+          [
+            "2",
+            "0.50%",
+            "1.0050",
+            "1.0251"
+          ],
+          [
+            "3",
+            "−1.00%",
+            "0.9900",
+            "1.0148"
+          ],
+          [
+            "4",
+            "1.50%",
+            "1.0150",
+            "1.0301"
+          ]
+        ],
+        "reading_steps": [
+          "Per-half-year geometric mean = 1.0301^(1/4) − 1 = 0.74%.",
+          "Annual rate = 1.0301^(1/2) − 1 = 1.49%: the root is the number of years (2), not the number of periods (4).",
+          "Doubling the 0.74% figure ignores compounding within the year."
+        ],
+        "takeaway": "Annualize a compound return with the number of years as the root."
+      }
+    },
+    {
+      "id": "c17",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Harmonic mean and cost averaging",
+      "definition": "The harmonic mean of prices paid with equal money amounts gives the average cost per share. It is always below the simple average price. Investing a fixed amount each period is called cost averaging.",
+      "formula": "Harmonic mean = N ÷ Σ(1 ÷ Xᵢ)",
+      "why_it_matters": "It explains why regular fixed-amount investing buys more shares when prices are low, lowering the average cost.",
+      "pitfalls": [
+        "Using the simple average price as the cost basis when the money invested is fixed. It overstates the average cost."
+      ],
+      "worked_example": {
+        "title": "Average cost of fixed-amount purchases",
+        "steps": [
+          "$1,000 buys shares at $8, $9 and $10: 125.00 + 111.11 + 100.00 = 336.11 shares for $3,000.",
+          "Average cost = 3,000 ÷ 336.11 = $8.93 per share.",
+          "The simple average price (8 + 9 + 10) ÷ 3 = $9.00 overstates the true cost."
+        ]
+      },
+      "manager_case": {
+        "role": "Plan administrator, employer 401(k) plan (illustrative)",
+        "situation": "Employees invest $1,000 a month from payroll into an index fund. The fund's price moves from $8 to $10 over three months.",
+        "action": "The administrator reports each participant's average cost per share as the harmonic mean ($8.93), not the simple average ($9.00).",
+        "outcome": "Participants see that regular investing bought more shares in the cheaper months, which lowered their average cost."
+      },
+      "sheet": {
+        "title": "Dollar-cost averaging: average cost per share",
+        "caption": "Invest $1,000 each month at the prices shown.",
+        "columns": [
+          "Month",
+          "Price per share",
+          "Amount invested",
+          "Shares bought",
+          "Cumulative shares",
+          "Cumulative cost"
+        ],
+        "rows": [
+          [
+            "1",
+            "$8",
+            "$1,000",
+            "125.00",
+            "125.00",
+            "$1,000"
+          ],
+          [
+            "2",
+            "$9",
+            "$1,000",
+            "111.11",
+            "236.11",
+            "$2,000"
+          ],
+          [
+            "3",
+            "$10",
+            "$1,000",
+            "100.00",
+            "336.11",
+            "$3,000"
+          ]
+        ],
+        "reading_steps": [
+          "Shares bought = amount invested ÷ price.",
+          "Average cost = total cost ÷ total shares = $3,000 ÷ 336.11 = $8.93 (the harmonic mean of the prices).",
+          "Simple average price = (8 + 9 + 10) ÷ 3 = $9.00, higher than the true average cost."
+        ],
+        "takeaway": "With a fixed money amount, the harmonic mean gives the true average cost."
+      }
+    },
+    {
+      "id": "c18",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Relationship among the three means",
+      "definition": "For positive values that are not all equal: harmonic mean < geometric mean < arithmetic mean. The three are linked by: arithmetic × harmonic = geometric².",
+      "formula": "Harmonic < Geometric < Arithmetic\nArithmetic × Harmonic = Geometric²",
+      "why_it_matters": "It is a quick sanity check on any average you calculate.",
+      "pitfalls": [
+        "Expecting the three to be equal when returns vary. They are equal only when every observation is the same."
+      ],
+      "worked_example": {
+        "title": "Checking the order of three means",
+        "steps": [
+          "Per-period means for returns of 2%, 0.5%, −1.0% and 1.5%: harmonic 0.7369%, geometric 0.7435%, arithmetic 0.7500%.",
+          "Order: harmonic < geometric < arithmetic, as the chapter states for unequal positive values.",
+          "If a spreadsheet shows a geometric mean above the arithmetic mean for the same data, the formula contains an error."
+        ]
+      },
+      "manager_case": {
+        "role": "Model-review analyst, asset manager (illustrative)",
+        "situation": "A junior analyst's spreadsheet reports a geometric mean of 9.1% and an arithmetic mean of 8.4% for the same return series.",
+        "action": "The reviewer applies the ordering rule and finds that the geometric formula compounds the returns incorrectly.",
+        "outcome": "After the fix the geometric mean is 7.9%, below the arithmetic 8.4%, and the model passes review before the client report."
+      },
+      "sheet": {
+        "title": "Three means for the same four half-year returns",
+        "caption": "Per period (illustrative)",
+        "columns": [
+          "Measure",
+          "Result",
+          "Position in the order"
+        ],
+        "rows": [
+          [
+            "Harmonic (on 1 + r)",
+            "0.7369%",
+            "Smallest"
+          ],
+          [
+            "Geometric",
+            "0.7435%",
+            "Middle"
+          ],
+          [
+            "Arithmetic",
+            "0.7500%",
+            "Largest"
+          ]
+        ],
+        "reading_steps": [
+          "The order holds for unequal values: harmonic, then geometric, then arithmetic.",
+          "If the order is reversed, check the formula: geometric uses the product of (1 + r); harmonic uses reciprocals.",
+          "For equal values (10%, 10%, 10%) all three means are 10%."
+        ],
+        "takeaway": "The order of the three means is a quick check that a calculation is plausible."
+      }
+    },
+    {
+      "id": "c19",
+      "los": "1.b",
+      "source": "chapter",
+      "name": "Outliers, trimmed mean and winsorized mean",
+      "definition": "An outlier is an unusual observation that can distort an average. A trimmed mean removes the most extreme observations before averaging. A winsorized mean replaces them with the nearest remaining values.",
+      "formula": null,
+      "why_it_matters": "A single extreme value can make an average misleading. These methods reduce its effect while keeping the sample size.",
+      "pitfalls": [
+        "Trimming real information. When the outlier is the event you are studying, such as a crash, removing it hides the risk."
+      ],
+      "worked_example": {
+        "title": "One extreme year",
+        "steps": [
+          "Annual returns: +5%, +6%, +4% and −60% (the outlier).",
+          "Arithmetic mean including the outlier = (5 + 6 + 4 − 60) ÷ 4 = −11.25%.",
+          "Trimmed mean (drop the highest and lowest) = (5 + 4) ÷ 2 = 4.50%. Winsorized mean (replace −60 with 4) = (5 + 6 + 4 + 4) ÷ 4 = 4.75%."
+        ]
+      },
+      "manager_case": {
+        "role": "Equity research analyst (illustrative)",
+        "situation": "A company's earnings-growth consensus averages 12 analysts' forecasts, and one forecast is an extreme outlier.",
+        "action": "The analyst publishes a winsorized mean as the consensus, so one extreme forecast cannot dominate, and discloses the raw average beside it.",
+        "outcome": "The consensus is more stable from quarter to quarter, and the outlier remains visible in the disclosure."
+      },
+      "sheet": {
+        "title": "Annual returns with one outlier",
+        "caption": "Four years of returns for a fund (illustrative)",
+        "columns": [
+          "Measure",
+          "Calculation",
+          "Result"
+        ],
+        "rows": [
+          [
+            "Arithmetic mean (all four years)",
+            "(5 + 6 + 4 − 60) ÷ 4",
+            "−11.25%"
+          ],
+          [
+            "Trimmed mean (drop highest and lowest)",
+            "(5 + 4) ÷ 2",
+            "4.50%"
+          ],
+          [
+            "Winsorized mean (replace −60 with 4)",
+            "(5 + 6 + 4 + 4) ÷ 4",
+            "4.75%"
+          ]
+        ],
+        "reading_steps": [
+          "One −60% year drags the arithmetic mean far below any normal year.",
+          "Trimming removes the outlier and the best year; winsorizing keeps all four years but caps the extreme.",
+          "Keep the raw data: the −60% year is real, and the risk it represents still matters."
+        ],
+        "takeaway": "Outlier treatment changes the answer, so state which method you used."
+      }
+    },
+    {
+      "id": "c20",
+      "los": "1.b",
+      "source": "added",
+      "name": "Volatility drag",
+      "definition": "When returns fluctuate, the compound (geometric) return is lower than the arithmetic average. The gap grows with volatility; roughly, the gap is half the variance of returns.",
+      "formula": "Geometric ≈ Arithmetic − σ² ÷ 2   (approximation)",
+      "why_it_matters": "Explains why a volatile investment can have a high average return and still lose money over time.",
+      "pitfalls": [
+        "Concluding that a high arithmetic average means a high compound growth rate."
+      ],
+      "worked_example": {
+        "title": "A +10% year then a −10% year",
+        "steps": [
+          "Arithmetic mean = (10% − 10%) ÷ 2 = 0%.",
+          "Compounding: $100 × 1.10 = $110, then $110 × 0.90 = $99.",
+          "Geometric mean = √(1.10 × 0.90) − 1 = −0.50%. The gap between 0% and −0.50% is volatility drag."
+        ]
+      },
+      "manager_case": {
+        "role": "Portfolio manager, hedge fund (illustrative)",
+        "situation": "A strategy averages +10% and −10% in alternating years, and a marketing deck says its average is 0%.",
+        "action": "The risk team shows that $100 becomes $99, so the swings cost money. It proposes cutting position size when volatility rises.",
+        "outcome": "In a backtest, volatility-scaled sizing reduced the swings and narrowed the gap between the average return and the compound return."
+      },
+      "sheet": {
+        "title": "Portfolio: +10% then −10%",
+        "caption": "$100 invested; returns illustrative",
+        "columns": [
+          "Year",
+          "Return",
+          "Value at start",
+          "Value at end"
+        ],
+        "rows": [
+          [
+            "1",
+            "+10%",
+            "$100.00",
+            "$110.00"
+          ],
+          [
+            "2",
+            "−10%",
+            "$110.00",
+            "$99.00"
+          ],
+          [
+            "Arithmetic mean",
+            "0.00%",
+            "",
+            ""
+          ],
+          [
+            "Geometric mean",
+            "−0.50%",
+            "",
+            ""
+          ]
+        ],
+        "reading_steps": [
+          "The arithmetic mean suggests no change; the ending value shows a $1 loss.",
+          "The geometric mean (−0.50%) matches the ending value; the gap is volatility drag."
+        ],
+        "takeaway": "A high average return with large swings can still compound to a loss."
+      }
+    },
+    {
+      "id": "c21",
+      "los": "1.c",
+      "source": "chapter",
+      "name": "Money-weighted return (IRR of cash flows)",
+      "definition": "The internal rate of return on a portfolio, counting every deposit, withdrawal and the ending value. It is the rate that makes the present value of cash inflows equal to the present value of outflows (NPV = 0).",
+      "formula": "Σ CFₜ ÷ (1 + r)ᵗ = 0  →  solve for r (the IRR)",
+      "why_it_matters": "It measures the return on the money that was actually invested, so it reflects the investor's own timing decisions.",
+      "pitfalls": [
+        "Entering cash flows with inconsistent signs. Deposits and withdrawals must have opposite signs; flipping all signs gives the same IRR."
+      ],
+      "worked_example": {
+        "title": "IRR of a private-equity commitment",
+        "steps": [
+          "Cash flows to the investor ($m): year 0 −4, year 1 −3, year 2 −3 (capital calls); year 3 +1, year 4 +4, year 5 +12 (distributions).",
+          "Solve for the rate where NPV = 0: IRR = 15.11%.",
+          "Net gain = 17 − 10 = $7m, but the annual rate depends on when each dollar moved, which is what the IRR captures."
+        ]
+      },
+      "manager_case": {
+        "role": "CFO, institutional investor (illustrative), reviewing a private-equity commitment",
+        "situation": "The fund asks for $10m paid in over three years. Distributions come later, and the fund manager sets their timing.",
+        "action": "The CFO evaluates the commitment on its money-weighted return (IRR), because the manager controls cash timing, and compares the 15.11% IRR with the 12% target.",
+        "outcome": "The IRR beats the target, so the CFO recommends the commitment. The $7m net gain alone would not show the annual rate."
+      },
+      "sheet": {
+        "title": "Capital calls and distributions",
+        "caption": "$ millions, investor's view (illustrative)",
+        "columns": [
+          "Year",
+          "Event",
+          "Cash flow",
+          "Cumulative"
+        ],
+        "rows": [
+          [
+            "0",
+            "Capital call",
+            "−4",
+            "−4"
+          ],
+          [
+            "1",
+            "Capital call",
+            "−3",
+            "−7"
+          ],
+          [
+            "2",
+            "Capital call",
+            "−3",
+            "−10"
+          ],
+          [
+            "3",
+            "Distribution",
+            "+1",
+            "−9"
+          ],
+          [
+            "4",
+            "Distribution",
+            "+4",
+            "−5"
+          ],
+          [
+            "5",
+            "Distribution",
+            "+12",
+            "+7"
+          ],
+          [
+            "IRR",
+            "",
+            "",
+            "15.11%"
+          ]
+        ],
+        "reading_steps": [
+          "Money paid in is negative; money received is positive.",
+          "The cumulative column shows peak exposure of −10 in year 2.",
+          "Enter the six cash flows in the calculator's cash-flow worksheet and compute IRR = 15.11%."
+        ],
+        "takeaway": "IRR reflects both the size and the timing of each cash flow."
+      }
+    },
+    {
+      "id": "c22",
+      "los": "1.c",
+      "source": "chapter",
+      "name": "Time-weighted return (TWR)",
+      "definition": "The compound growth rate of $1 invested in the portfolio, ignoring the size and timing of outside cash flows. Built by valuing the portfolio just before each cash flow, computing subperiod HPRs and chain-linking them.",
+      "formula": "TWR = Π(1 + HPRᵢ) − 1  (annualize with the root equal to the number of years)",
+      "why_it_matters": "It isolates the manager's investment decisions from the investor's timing of deposits.",
+      "pitfalls": [
+        "Failing to value the portfolio immediately before each cash flow. Without that, the subperiods are wrong."
+      ],
+      "worked_example": {
+        "title": "Chain-linking two sub-periods",
+        "steps": [
+          "Period 1: value $100 → $120, plus a $2 dividend: HPR = 22%.",
+          "Period 2: value $240 (two shares) → $260, plus $4 dividends: HPR = 10%.",
+          "Time-weighted return over two years = 1.22 × 1.10 − 1 = 34.20%, or 15.84% a year."
+        ]
+      },
+      "manager_case": {
+        "role": "Fund performance analyst, asset manager (illustrative)",
+        "situation": "The fund receives client inflows and outflows throughout the year.",
+        "action": "The analyst values the fund just before each inflow or outflow and chain-links the sub-period returns, so client timing does not affect the manager's record.",
+        "outcome": "The factsheet reports 15.84% a year. Each client's personal result is reported separately as a money-weighted return."
+      },
+      "sheet": {
+        "title": "Time-weighted return: subperiods and chain-linking",
+        "caption": "Same investment as the MWR example. Valued just before and after each cash flow.",
+        "columns": [
+          "Subperiod",
+          "Beginning value",
+          "Dividends",
+          "Ending value (before next purchase)",
+          "HPR",
+          "Cumulative growth"
+        ],
+        "rows": [
+          [
+            "Year 1",
+            "$100",
+            "$2",
+            "$120",
+            "22.00%",
+            "1.2200"
+          ],
+          [
+            "Year 2",
+            "$240 (2 shares)",
+            "$4",
+            "$260",
+            "10.00%",
+            "1.3420"
+          ]
+        ],
+        "reading_steps": [
+          "HPR = (ending value + dividends − beginning value) ÷ beginning value.",
+          "Year 2 starts with 2 shares at $120 each = $240; the second purchase is already in that starting value.",
+          "Chain-link: 1.22 × 1.10 = 1.3420. Annualize: 1.3420^(1/2) − 1 = 15.84%."
+        ],
+        "takeaway": "TWR ignores when the investor bought, so it measures the manager's decisions."
+      }
+    },
+    {
+      "id": "c23",
+      "los": "1.c",
+      "source": "chapter",
+      "name": "Choosing between money-weighted and time-weighted returns",
+      "definition": "Use TWR to judge a manager who does not control cash flows, which is the usual case. Use MWR when the decision-maker controls the size and timing of the flows.",
+      "formula": null,
+      "why_it_matters": "Picking the wrong measure makes a good manager look bad, or a poor timing decision look like manager skill.",
+      "pitfalls": [
+        "Comparing a fund's TWR with your personal MWR and blaming the fund for the gap."
+      ],
+      "worked_example": {
+        "title": "Same investment, two answers",
+        "steps": [
+          "TWR = 15.84% a year: the manager's compound growth.",
+          "MWR = 13.86% a year: the investor's money-weighted experience.",
+          "The 1.98-point gap comes from the timing of the $120 purchase, which fell before the weaker year."
+        ]
+      },
+      "manager_case": {
+        "role": "Investment consultant, reviewing managers for a pension plan (illustrative)",
+        "situation": "The plan sponsor asks whether a manager has under-performed after contributions arrived just before a weak year.",
+        "action": "The consultant judges the manager on TWR, since the manager did not choose the contributions. MWR is used only to measure the plan's own timing.",
+        "outcome": "The manager's TWR beats the benchmark, so it is retained. The plan's MWR gap is explained by its contribution timing, not by the manager."
+      },
+      "sheet": {
+        "title": "Which measure to use for whom",
+        "caption": "Same portfolio, chapter example",
+        "columns": [
+          "Measure",
+          "Value",
+          "Who controls the cash flows",
+          "Use it to judge"
+        ],
+        "rows": [
+          [
+            "Time-weighted return",
+            "15.84%",
+            "Not the manager",
+            "The manager's investment skill"
+          ],
+          [
+            "Money-weighted return",
+            "13.86%",
+            "The investor or plan sponsor",
+            "The investor's own timing and results"
+          ]
+        ],
+        "reading_steps": [
+          "If the manager controls neither inflows nor outflows, use TWR.",
+          "If the investor chose the timing and size of contributions, MWR describes that investor's actual result.",
+          "Both figures are correct; they answer different questions."
+        ],
+        "takeaway": "Pick the measure that matches who controlled the money."
+      }
+    },
+    {
+      "id": "c24",
+      "los": "1.c",
+      "source": "chapter",
+      "name": "Cash flow timing distortion",
+      "definition": "Money added just before a poor period lowers the money-weighted return relative to the time-weighted return. Money added just before a strong period raises it. TWR removes this distortion.",
+      "formula": null,
+      "why_it_matters": "It explains why two investors in the same fund can earn different personal returns.",
+      "pitfalls": [
+        "Assuming the gap between MWR and TWR is a sign of manager skill or failure."
+      ],
+      "worked_example": {
+        "title": "Same fund, two timings",
+        "steps": [
+          "Scenario 1: $100 invested; year 1 −20%; $100 added; year 2 +20%.",
+          "TWR = (0.80 × 1.20)^(1/2) − 1 = −2.02% a year. MWR (IRR) = +5.24% a year.",
+          "Scenario 2: $100 invested; year 1 +20%; $100 added; year 2 −20%. TWR is still −2.02%, but MWR = −8.23% a year."
+        ]
+      },
+      "manager_case": {
+        "role": "Financial advisor (illustrative)",
+        "situation": "Two clients in the same fund show different personal returns. One added money before a rally; the other added before a fall.",
+        "action": "The advisor shows each client their money-weighted return beside the fund's time-weighted return, and explains that the gap is timing, not fund quality.",
+        "outcome": "Both clients learn to plan contributions around cash needs rather than market timing."
+      },
+      "sheet": {
+        "title": "Timing of a $100 addition: two scenarios",
+        "caption": "Same fund, same yearly returns; only the timing of the extra $100 differs.",
+        "columns": [
+          "Scenario",
+          "Extra money added before",
+          "TWR (per year)",
+          "MWR (per year)",
+          "MWR minus TWR"
+        ],
+        "rows": [
+          [
+            "1",
+            "a +20% year",
+            "−2.02%",
+            "+5.24%",
+            "+7.26 points"
+          ],
+          [
+            "2",
+            "a −20% year",
+            "−2.02%",
+            "−8.23%",
+            "−6.21 points"
+          ]
+        ],
+        "reading_steps": [
+          "Both scenarios have the same TWR because the fund's returns are identical.",
+          "MWR rises when the extra money is in place for the good year, and falls when it is in place for the bad year.",
+          "The TWR removes that effect, which is why it measures the fund rather than the investor."
+        ],
+        "takeaway": "Investor timing can make a personal return look much better or worse than the fund's."
+      }
+    },
+    {
+      "id": "c25",
+      "los": "1.c",
+      "source": "chapter",
+      "name": "Net present value (NPV) and the IRR",
+      "definition": "NPV is the present value of inflows minus the present value of outflows at a chosen discount rate. The IRR is the rate at which NPV equals zero. The chapter notes that financial-calculator NPV and IRR functions are permitted on the exam.",
+      "formula": "NPV = Σ CFₜ ÷ (1 + r)ᵗ;   IRR is the r where NPV = 0",
+      "why_it_matters": "NPV and IRR are the two core tools for valuing any stream of cash flows.",
+      "pitfalls": [
+        "Entering cash flows in the wrong order or with the wrong sign before running IRR."
+      ],
+      "worked_example": {
+        "title": "NPV and IRR of a project",
+        "steps": [
+          "Project: cost $12m today; $5m a year for 3 years.",
+          "NPV at 10% = −12 + 5 ÷ 1.10 + 5 ÷ 1.10² + 5 ÷ 1.10³ = +$0.434m.",
+          "IRR is the rate where NPV = 0: 12.04%. An IRR above the 10% hurdle means positive NPV."
+        ]
+      },
+      "manager_case": {
+        "role": "CFO, Northfield Components (illustrative)",
+        "situation": "The packaging line is presented to the board with its NPV and IRR.",
+        "action": "The CFO compares the 12.04% IRR with the 10% cost of capital and tests higher hurdle rates to see how much margin the project has.",
+        "outcome": "The NPV stays positive up to about 12%, so the board approves, noting that the margin of safety is thin."
+      },
+      "sheet": {
+        "title": "How NPV changes with the discount rate",
+        "caption": "Packaging line, $ millions (illustrative)",
+        "columns": [
+          "Discount rate",
+          "NPV",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "10%",
+            "+0.43",
+            "Accept"
+          ],
+          [
+            "11%",
+            "+0.22",
+            "Accept"
+          ],
+          [
+            "12.04% (IRR)",
+            "0.00",
+            "Break-even"
+          ],
+          [
+            "13%",
+            "−0.19",
+            "Reject"
+          ]
+        ],
+        "reading_steps": [
+          "NPV falls as the discount rate rises.",
+          "At the IRR, NPV is zero: that is the break-even return.",
+          "Accept when NPV > 0 at the required return."
+        ],
+        "takeaway": "NPV and IRR give the same accept/reject decision for a conventional project."
+      }
+    },
+    {
+      "id": "c26",
+      "los": "1.c",
+      "source": "added",
+      "name": "NPV decision rule",
+      "definition": "Accept an investment when its NPV at the required return is positive, and reject it when NPV is negative. A positive NPV means the investment earns more than the required rate.",
+      "formula": "Accept if NPV > 0; reject if NPV < 0",
+      "why_it_matters": "It turns the discount-rate idea into a clear yes-or-no decision. The chapter uses NPV but does not state the rule.",
+      "pitfalls": [
+        "Comparing NPVs of projects of very different sizes without considering the scale of investment."
+      ],
+      "worked_example": {
+        "title": "NPV decision rule with two projects",
+        "steps": [
+          "Project A: NPV at 10% = +0.43, so accept.",
+          "Project B: cost $12m; cash flows $4.5m a year for 3 years; NPV at 10% = −0.81, so reject.",
+          "Project B's IRR (6.13%) is below the 10% hurdle, so the two rules agree."
+        ]
+      },
+      "manager_case": {
+        "role": "Capital committee, Northfield Components (illustrative)",
+        "situation": "Two packaging projects compete for one budget. Project B needs the same equipment spend but returns less each year.",
+        "action": "The committee ranks the projects by NPV at the 10% hurdle rate, rejects B, and approves A.",
+        "outcome": "The company avoids a project that would destroy $0.81m of value at its hurdle rate, and funds the one that adds $0.43m."
+      },
+      "sheet": {
+        "title": "Two projects at a 10% hurdle",
+        "caption": "$ millions; both cost $12m (illustrative)",
+        "columns": [
+          "Project",
+          "Annual cash flow (3 years)",
+          "NPV at 10%",
+          "IRR",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "A",
+            "5.00",
+            "+0.43",
+            "12.04%",
+            "Accept"
+          ],
+          [
+            "B",
+            "4.50",
+            "−0.81",
+            "6.13%",
+            "Reject"
+          ]
+        ],
+        "reading_steps": [
+          "Accept when NPV > 0. Equivalently, accept when IRR > hurdle rate.",
+          "Project B's IRR is below 10%, so its NPV is negative.",
+          "When projects differ greatly in size, compare NPVs, not IRRs."
+        ],
+        "takeaway": "The NPV rule gives a clear yes or no at the required return."
+      }
+    },
+    {
+      "id": "c27",
+      "los": "1.d",
+      "source": "chapter",
+      "name": "Annualized return",
+      "definition": "A conversion of a return over any period into an equivalent one-year rate, using compounding. Interest rates and market returns are usually quoted this way regardless of the period they cover.",
+      "formula": "Annualized return = (1 + HPR)^(365 ÷ days) − 1",
+      "why_it_matters": "It is the only fair way to compare a 90-day deposit with a 1-year deposit.",
+      "pitfalls": [
+        "Multiplying the HPR by 365 ÷ days instead of compounding it.",
+        "Annualizing very short periods, which can produce misleadingly large numbers."
+      ],
+      "worked_example": {
+        "title": "Annualizing a 90-day deposit",
+        "steps": [
+          "90-day return: 100.75 ÷ 100 − 1 = 0.75%.",
+          "Annualized = (1.0075)^(365 ÷ 90) − 1 = (1.0075)^4.056 − 1 = 3.08%.",
+          "Compare with a 1-year CD at 4.00%, not with 0.75%."
+        ]
+      },
+      "manager_case": {
+        "role": "Group treasurer, Northfield Components (illustrative)",
+        "situation": "Surplus cash can go into a 90-day deposit at 0.75% for the period, or into a 1-year CD at 4.00%.",
+        "action": "The treasurer annualizes the 90-day offer to 3.08% and compares it with the 4.00% CD on a like-for-like basis.",
+        "outcome": "The CD wins (4.00% vs 3.08%), and the treasurer books a 1-year CD for the surplus."
+      },
+      "sheet": {
+        "title": "Deposit options on a like-for-like basis",
+        "caption": "Surplus cash $10m (illustrative)",
+        "columns": [
+          "Option",
+          "Holding period",
+          "Period return",
+          "Annualized return",
+          "Income on $10m in a year"
+        ],
+        "rows": [
+          [
+            "90-day deposit",
+            "90 days",
+            "0.75%",
+            "3.08%",
+            "$308,000"
+          ],
+          [
+            "1-year CD",
+            "365 days",
+            "4.00%",
+            "4.00%",
+            "$400,000"
+          ]
+        ],
+        "reading_steps": [
+          "Annualized = (1 + period return)^(365 ÷ days) − 1.",
+          "The 1-year CD already earns an annual rate, so no conversion is needed.",
+          "Always quote the actual period return next to the annualized figure."
+        ],
+        "takeaway": "Compare returns over the same horizon, using annualized rates."
+      }
+    },
+    {
+      "id": "c28",
+      "los": "1.d",
+      "source": "chapter",
+      "name": "Compounding frequency",
+      "definition": "Compounding more often at the same stated annual rate raises the effective rate. This increases future value and decreases present value.",
+      "formula": "PV = FV × (1 + r ÷ m)^(−mN)   (m = compounding periods per year)",
+      "why_it_matters": "Two products with the same stated rate can pay different amounts. The compounding frequency decides which pays more.",
+      "pitfalls": [
+        "Comparing rates with different compounding frequencies without converting them to effective annual rates."
+      ],
+      "worked_example": {
+        "title": "Same 6% rate, different compounding",
+        "steps": [
+          "Monthly: PV of $1,000 in one year = 1,000 ÷ (1 + 0.06 ÷ 12)^12 = 1,000 ÷ 1.06168 = $941.91.",
+          "Annual: PV = 1,000 ÷ 1.06 = $943.40.",
+          "More frequent compounding means a higher effective rate (6.17%), so the PV is lower."
+        ]
+      },
+      "manager_case": {
+        "role": "Treasurer, Northfield Components (illustrative)",
+        "situation": "Two banks both quote 6% in their term sheets for a revolving line; one compounds monthly and one annually.",
+        "action": "The treasurer converts both to effective annual rates before comparing: monthly compounding gives 6.17%, annual gives 6.00%.",
+        "outcome": "She asks the monthly-compounding bank to reprice. At 5.83% compounded monthly, the effective rate is 5.99%, below the 6.00% annual offer, so that bank wins."
+      },
+      "sheet": {
+        "title": "PV of $1,000 at a 6% stated rate, by compounding",
+        "caption": "PV of $1,000 received in one year",
+        "columns": [
+          "Compounding",
+          "m",
+          "Periodic rate",
+          "PV of $1,000",
+          "Effective annual rate"
+        ],
+        "rows": [
+          [
+            "Annual",
+            "1",
+            "6.000%",
+            "$943.40",
+            "6.00%"
+          ],
+          [
+            "Semiannual",
+            "2",
+            "3.000%",
+            "$942.60",
+            "6.09%"
+          ],
+          [
+            "Quarterly",
+            "4",
+            "1.500%",
+            "$942.18",
+            "6.14%"
+          ],
+          [
+            "Monthly",
+            "12",
+            "0.500%",
+            "$941.91",
+            "6.17%"
+          ],
+          [
+            "Daily",
+            "365",
+            "0.01644%",
+            "$941.77",
+            "6.18%"
+          ],
+          [
+            "Continuous",
+            "∞",
+            "—",
+            "$941.76",
+            "6.18%"
+          ]
+        ],
+        "reading_steps": [
+          "PV = 1,000 ÷ (1 + 0.06 ÷ m)^m.",
+          "Effective annual rate = (1 + 0.06 ÷ m)^m − 1. This is the column that makes the rows comparable.",
+          "More frequent compounding raises the effective rate and lowers the present value."
+        ],
+        "takeaway": "Compare products using effective annual rates, never stated rates alone."
+      }
+    },
+    {
+      "id": "c29",
+      "los": "1.d",
+      "source": "added",
+      "name": "Effective annual rate (EAR)",
+      "definition": "The annual rate that produces the same growth as a stated rate compounded m times a year. It is the basis for comparing products that compound at different frequencies.",
+      "formula": "EAR = (1 + r ÷ m)^m − 1",
+      "why_it_matters": "It converts any quoted rate into a number you can compare directly.",
+      "pitfalls": [
+        "Confusing the stated rate (APR) with the effective annual rate."
+      ],
+      "worked_example": {
+        "title": "Effective annual rate of a 24% APR compounded monthly",
+        "steps": [
+          "Periodic rate = 24% ÷ 12 = 2.00%.",
+          "EAR = (1.02)^12 − 1 = 1.26824 − 1 = 26.82%.",
+          "The stated 24% is the APR; the effective annual cost is 26.82%."
+        ]
+      },
+      "manager_case": {
+        "role": "Treasurer, Northfield Components (illustrative)",
+        "situation": "Bank A offers a revolving credit line at 6.00% compounded monthly. Bank B offers 6.10% compounded annually.",
+        "action": "The treasurer converts both to EARs: Bank A = (1 + 0.06 ÷ 12)^12 − 1 = 6.17%; Bank B = 6.10%.",
+        "outcome": "Bank B is cheaper despite its higher stated rate. On a $50m drawn balance, the 0.07-point gap is worth about $35,000 a year."
+      },
+      "sheet": {
+        "title": "Two credit lines compared on an EAR basis",
+        "caption": "Stated rate vs effective annual rate (illustrative)",
+        "columns": [
+          "Bank",
+          "Stated rate",
+          "Compounding",
+          "Periodic rate",
+          "EAR"
+        ],
+        "rows": [
+          [
+            "Bank A",
+            "6.00%",
+            "Monthly (12)",
+            "0.50%",
+            "6.17%"
+          ],
+          [
+            "Bank B",
+            "6.10%",
+            "Annual (1)",
+            "6.10%",
+            "6.10%"
+          ]
+        ],
+        "reading_steps": [
+          "Periodic rate = stated rate ÷ compounding periods.",
+          "EAR = (1 + periodic rate)^periods − 1.",
+          "Bank B's 6.10% is the EAR, so it is cheaper than Bank A's 6.17%."
+        ],
+        "takeaway": "A higher stated rate can still be the cheaper loan once compounding is counted."
+      }
+    },
+    {
+      "id": "c30",
+      "los": "1.d",
+      "source": "chapter",
+      "name": "Continuously compounded return",
+      "definition": "The limit of compounding more and more often. It equals the natural log of the price relative, which is one plus the HPR.",
+      "formula": "R_cc = ln(1 + HPR) = ln(ending value ÷ beginning value)",
+      "why_it_matters": "Continuously compounded returns are used in option pricing and in many risk models.",
+      "pitfalls": [
+        "Applying ln to the HPR without adding 1 first."
+      ],
+      "worked_example": {
+        "title": "Continuously compounded return on $100 → $120",
+        "steps": [
+          "Continuously compounded return = ln(ending value ÷ beginning value) = ln(120 ÷ 100) = ln(1.20).",
+          "ln(1.20) = 0.18232, so the return is 18.23%.",
+          "The discrete return is 20%. The continuously compounded rate is lower for the same ending value."
+        ]
+      },
+      "manager_case": {
+        "role": "Quantitative risk analyst, asset manager (illustrative)",
+        "situation": "A risk model for a stock portfolio uses daily returns, and the team needs returns that add up over time.",
+        "action": "The analyst converts each day's price change to a log return (continuously compounded), so the daily values add to the period's return.",
+        "outcome": "The model's weekly figure (3.92%, see sheet) matches the total log change without a compounding adjustment."
+      },
+      "sheet": {
+        "title": "Daily prices and log returns",
+        "caption": "Illustrative stock price, $ (for a risk model)",
+        "columns": [
+          "Day",
+          "Close",
+          "Simple return",
+          "Log return"
+        ],
+        "rows": [
+          [
+            "0",
+            "100.00",
+            "—",
+            "—"
+          ],
+          [
+            "1",
+            "102.00",
+            "2.00%",
+            "1.98%"
+          ],
+          [
+            "2",
+            "99.00",
+            "−2.94%",
+            "−2.99%"
+          ],
+          [
+            "3",
+            "103.00",
+            "4.04%",
+            "3.96%"
+          ],
+          [
+            "4",
+            "104.00",
+            "0.97%",
+            "0.97%"
+          ],
+          [
+            "Total change",
+            "",
+            "+4.00%",
+            "+3.92%"
+          ]
+        ],
+        "reading_steps": [
+          "Log return = ln(close ÷ previous close).",
+          "Log returns add: 1.98 − 2.99 + 3.96 + 0.97 = 3.92%.",
+          "Simple returns do not add exactly: their sum (4.07%) differs from the actual change (4.00%)."
+        ],
+        "takeaway": "Log returns are the right tool when returns must be added across time."
+      }
+    },
+    {
+      "id": "c31",
+      "los": "1.d",
+      "source": "chapter",
+      "name": "Additivity of continuously compounded returns",
+      "definition": "Continuously compounded returns add across periods. The return from time 0 to time 2 is the sum of the returns for each sub-period.",
+      "formula": "R_cc(0→2) = R_cc(0→1) + R_cc(1→2)",
+      "why_it_matters": "It makes multi-period return analysis simple, because you can add the log returns instead of multiplying.",
+      "pitfalls": [
+        "Adding discrete HPRs. The additive property holds only for continuously compounded returns."
+      ],
+      "worked_example": {
+        "title": "Adding log returns across days",
+        "steps": [
+          "Daily log returns: 1.98%, −2.99%, 3.96%, 0.97%.",
+          "Sum = 3.92%.",
+          "Check: ln(104 ÷ 100) = 3.92%. The sum equals the single-period log return from start to end."
+        ]
+      },
+      "manager_case": {
+        "role": "Risk manager, portfolio desk (illustrative)",
+        "situation": "Risk reports need a weekly return from daily data. The desk's tool sums the daily returns.",
+        "action": "The risk manager checks the additivity property on the week's data. Summing simple returns would over-count by 0.07 points (4.07% vs 4.00%).",
+        "outcome": "The desk aggregates with log returns and shows simple returns only for display, so reports reconcile to the portfolio's actual change."
+      },
+      "sheet": {
+        "title": "Adding returns: log vs simple",
+        "caption": "Same four daily moves as above",
+        "columns": [
+          "Method",
+          "Day 1",
+          "Day 2",
+          "Day 3",
+          "Day 4",
+          "Sum of daily returns",
+          "Actual period return"
+        ],
+        "rows": [
+          [
+            "Log returns",
+            "1.98%",
+            "−2.99%",
+            "3.96%",
+            "0.97%",
+            "3.92%",
+            "3.92%"
+          ],
+          [
+            "Simple returns",
+            "2.00%",
+            "−2.94%",
+            "4.04%",
+            "0.97%",
+            "4.07%",
+            "4.00%"
+          ]
+        ],
+        "reading_steps": [
+          "Log returns sum exactly to the actual period log return.",
+          "Simple returns over-count: 4.07% vs the actual 4.00%."
+        ],
+        "takeaway": "Add log returns across periods; do not add simple returns."
+      }
+    },
+    {
+      "id": "c32",
+      "los": "1.e",
+      "source": "chapter",
+      "name": "Gross vs net return",
+      "definition": "Gross return is the return before fees for managing and administering the account, but after trading commissions and other costs needed to generate the return. Net return is the return after those fees.",
+      "formula": "Net return ≈ gross return − management and administration fees",
+      "why_it_matters": "Fees compound over time and can take a large share of the return an investor keeps.",
+      "pitfalls": [
+        "Comparing a fund's gross return with a benchmark's net return, or the reverse."
+      ],
+      "worked_example": {
+        "title": "Gross to net on a $1m portfolio",
+        "steps": [
+          "Gross return 8.00% × $1,000,000 = $80,000.",
+          "Management and administration fee 0.75% × $1,000,000 = $7,500.",
+          "Net return = 80,000 − 7,500 = $72,500 = 7.25%."
+        ]
+      },
+      "manager_case": {
+        "role": "Wealth manager (illustrative)",
+        "situation": "A client's portfolio is reported at 8.00% gross, but the statement shows fees separately.",
+        "action": "The manager reconciles the gross figure with the statement, reports 7.25% net, and shows what the fee does over 10 years.",
+        "outcome": "Gross, $1m grows to $2.16m in 10 years at 8%; net of fees it reaches $2.01m. The client sees the fee cost in dollars."
+      },
+      "sheet": {
+        "title": "Client statement: gross to net",
+        "caption": "$1,000,000 portfolio, one year (illustrative)",
+        "columns": [
+          "Line",
+          "Rate",
+          "Amount ($)"
+        ],
+        "rows": [
+          [
+            "Gross return",
+            "8.00%",
+            "80,000"
+          ],
+          [
+            "Management & administration fees",
+            "−0.75%",
+            "−7,500"
+          ],
+          [
+            "Net return",
+            "7.25%",
+            "72,500"
+          ]
+        ],
+        "reading_steps": [
+          "Fees are a percentage of the portfolio, so the fee in dollars is 0.75% × 1,000,000.",
+          "Net return = gross return − fees (an approximation that holds for a fee on the starting value).",
+          "Over 10 years the fee compounds: 1.0725^10 = 2.01 vs 1.08^10 = 2.16 times the starting value."
+        ],
+        "takeaway": "The return an investor keeps is the net return; gross figures overstate what the investor receives."
+      }
+    },
+    {
+      "id": "c33",
+      "los": "1.e",
+      "source": "chapter",
+      "name": "Pretax vs after-tax nominal return",
+      "definition": "Pretax nominal return ignores taxes. After-tax nominal return deducts the tax on income and gains. Different income types, such as interest, dividends and capital gains, may be taxed at different rates.",
+      "formula": "After-tax return ≈ pretax return × (1 − tax rate)  (single income type)",
+      "why_it_matters": "What you keep after tax is what you can spend or reinvest.",
+      "pitfalls": [
+        "Comparing a tax-free yield with a taxable yield without converting them to a common basis."
+      ],
+      "worked_example": {
+        "title": "After-tax comparison at a 30% tax rate",
+        "steps": [
+          "Corporate bond: 5.50% pre-tax; after tax = 5.50% × (1 − 0.30) = 3.85%.",
+          "Municipal bond: 4.00% tax-free; after tax = 4.00%.",
+          "Taxable equivalent of the municipal bond = 4.00% ÷ (1 − 0.30) = 5.71%."
+        ]
+      },
+      "manager_case": {
+        "role": "Wealth manager (illustrative)",
+        "situation": "A client in the 30% bracket asks whether a 4.00% tax-exempt municipal bond beats a 5.50% corporate bond.",
+        "action": "The manager compares after-tax returns (4.00% vs 3.85%) and shows the taxable equivalent (5.71%).",
+        "outcome": "The client buys the municipal bond and keeps 4.00% after tax. The manager notes the two bonds carry different credit risk, so they are not perfect substitutes."
+      },
+      "sheet": {
+        "title": "Pretax vs after-tax yields for two bonds",
+        "caption": "30% tax rate on interest (illustrative)",
+        "columns": [
+          "Bond",
+          "Pretax yield",
+          "Tax rate",
+          "After-tax yield",
+          "Taxable equivalent"
+        ],
+        "rows": [
+          [
+            "Corporate bond",
+            "5.50%",
+            "30%",
+            "3.85%",
+            "5.50%"
+          ],
+          [
+            "Municipal bond",
+            "4.00%",
+            "0%",
+            "4.00%",
+            "5.71%"
+          ]
+        ],
+        "reading_steps": [
+          "After-tax yield = pretax yield × (1 − tax rate).",
+          "Taxable equivalent = tax-free yield ÷ (1 − tax rate): what a taxable bond would need to yield to match it.",
+          "Compare on an after-tax basis: 4.00% beats 3.85%."
+        ],
+        "takeaway": "Always convert to a common basis before comparing yields."
+      }
+    },
+    {
+      "id": "c34",
+      "los": "1.e",
+      "source": "chapter",
+      "name": "Real return",
+      "definition": "The increase in purchasing power, which is the nominal return adjusted for inflation. Approximately nominal minus inflation; exactly (1 + nominal) ÷ (1 + inflation) − 1.",
+      "formula": "1 + real = (1 + nominal) ÷ (1 + inflation)   (approx: real ≈ nominal − inflation)",
+      "why_it_matters": "A portfolio that earns 7% when prices rise 3% grows living standards by about 4%, not 7%.",
+      "pitfalls": [
+        "Using the approximation when inflation or returns are large."
+      ],
+      "worked_example": {
+        "title": "Real growth of $100,000",
+        "steps": [
+          "Nominal growth 7% → $100,000 × 1.07 = $107,000.",
+          "Purchasing power of $107,000 with 3% inflation = 107,000 ÷ 1.03 = $103,883.",
+          "Real return = 103,883 ÷ 100,000 − 1 = 3.88% (the shortcut 7 − 3 = 4.0% overstates it)."
+        ]
+      },
+      "manager_case": {
+        "role": "Retirement planner, wealth-management firm (illustrative)",
+        "situation": "A client wants to know what her $100,000 will buy in 10 years, in today's money.",
+        "action": "The planner projects 7% nominal growth and deflates the result with 3% inflation.",
+        "outcome": "The portfolio grows to about $196,715 in nominal dollars but only about $146,375 in today's dollars, which is the number the client should plan with."
+      },
+      "sheet": {
+        "title": "Nominal vs real value of a $100,000 portfolio",
+        "caption": "7% nominal return and 3% inflation (illustrative)",
+        "columns": [
+          "Measure",
+          "Nominal dollars",
+          "Real (today's dollars)"
+        ],
+        "rows": [
+          [
+            "Start",
+            "100,000",
+            "100,000"
+          ],
+          [
+            "After 1 year",
+            "107,000",
+            "103,883"
+          ],
+          [
+            "Real return",
+            "+7.00%",
+            "+3.88%"
+          ]
+        ],
+        "reading_steps": [
+          "Nominal value grows at 7%.",
+          "Real value = nominal ÷ (1 + inflation) = 107,000 ÷ 1.03 = 103,883.",
+          "Real return = 103,883 ÷ 100,000 − 1 = 3.88%."
+        ],
+        "takeaway": "Plan with real returns; a 7% nominal return buys about 3.9% more purchasing power a year."
+      }
+    },
+    {
+      "id": "c35",
+      "los": "1.e",
+      "source": "chapter",
+      "name": "Leveraged return",
+      "definition": "The gain or loss on the investor's own cash as a percentage of that cash. Borrowing, or holding a derivative, multiplies the underlying return, net of the cost of the borrowing.",
+      "formula": "Leveraged return = [r × (V₀ + V_B) − r_B × V_B] ÷ V₀",
+      "why_it_matters": "It explains how a modest asset return can produce a large return on the investor's equity.",
+      "pitfalls": [
+        "Forgetting to subtract interest on the borrowed amount."
+      ],
+      "worked_example": {
+        "title": "Northfield's leveraged return on equity",
+        "steps": [
+          "Invested capital = equity 330 + interest-bearing debt 560 = $890m.",
+          "Operating return r = EBIT ÷ invested capital = 200 ÷ 890 = 22.47%.",
+          "Leveraged equity return (pre-tax) = [r × 890 − 32.2] ÷ 330 = (200 − 32.2) ÷ 330 = 50.85%."
+        ]
+      },
+      "manager_case": {
+        "role": "CFO, Northfield Components (illustrative)",
+        "situation": "The board reviews the company's return on equity and asks how much of it comes from borrowing.",
+        "action": "The CFO shows a 22.47% pre-tax operating return on $890m of invested capital. Debt costs about 5.75%, so borrowing lifts the pre-tax return on equity to 50.85%.",
+        "outcome": "The board sets a leverage limit (debt-to-equity no higher than 2.0), because the same gearing that raises returns also amplifies a downturn."
+      },
+      "sheet": {
+        "title": "How EBIT changes Northfield's equity return",
+        "caption": "Invested capital $890m; interest $32.2m; equity $330m (illustrative)",
+        "columns": [
+          "Scenario",
+          "EBIT",
+          "Operating return (EBIT ÷ 890)",
+          "Equity return, pre-tax ((EBIT − 32.2) ÷ 330)"
+        ],
+        "rows": [
+          [
+            "Downturn (EBIT −10%)",
+            "180",
+            "20.22%",
+            "44.79%"
+          ],
+          [
+            "Base case",
+            "200",
+            "22.47%",
+            "50.85%"
+          ],
+          [
+            "Upturn (EBIT +10%)",
+            "220",
+            "24.72%",
+            "56.91%"
+          ]
+        ],
+        "reading_steps": [
+          "Operating return = EBIT ÷ 890.",
+          "Equity return = (EBIT − interest) ÷ equity. This is the leveraged formula with interest 32.2 and equity 330.",
+          "A 10% change in EBIT moves the equity return by about 6 points."
+        ],
+        "takeaway": "Leverage turns a modest change in operating profit into a larger change in equity return."
+      }
+    },
+    {
+      "id": "c36",
+      "los": "1.e",
+      "source": "added",
+      "name": "Leverage amplifies losses",
+      "definition": "Leverage works in both directions. A loss on the underlying asset is magnified on the investor's equity, and borrowing costs add to the loss. In margin or derivative positions, losses can exceed the cash put up.",
+      "formula": "Same formula as leveraged return; a negative r is magnified by (V₀ + V_B) ÷ V₀",
+      "why_it_matters": "Explains why leveraged positions are riskier than their expected return suggests.",
+      "pitfalls": [
+        "Judging a leveraged position by its expected gain and ignoring the downside."
+      ],
+      "worked_example": {
+        "title": "When operating return falls below the cost of debt",
+        "steps": [
+          "If EBIT falls to 20, the operating return = 20 ÷ 890 = 2.25%.",
+          "Equity return = (20 − 32.2) ÷ 330 = −3.70%. A 2.25% operating return becomes a −3.70% equity return.",
+          "The operating return is below the 5.75% cost of debt, so debt pulls equity below zero."
+        ]
+      },
+      "manager_case": {
+        "role": "Treasurer and risk committee, Northfield Components (illustrative)",
+        "situation": "A stress test assumes a severe recession in which EBIT falls to $20m.",
+        "action": "The treasurer shows that equity earns −3.70% in that case, because $32.2m of interest is still due, and that zero EBIT gives −9.76%.",
+        "outcome": "The committee caps leverage and requires $50m of undrawn credit as a buffer, so interest can still be paid if EBIT is close to zero."
+      },
+      "sheet": {
+        "title": "Stress test: equity return as EBIT falls",
+        "caption": "Same balance sheet as above; $ millions (illustrative)",
+        "columns": [
+          "Scenario",
+          "EBIT",
+          "Equity return (pre-tax)",
+          "Interest cover (EBIT ÷ 32.2)"
+        ],
+        "rows": [
+          [
+            "Base",
+            "200",
+            "50.85%",
+            "6.2×"
+          ],
+          [
+            "Recession",
+            "100",
+            "20.55%",
+            "3.1×"
+          ],
+          [
+            "Severe",
+            "20",
+            "−3.70%",
+            "0.6×"
+          ],
+          [
+            "Zero operating profit",
+            "0",
+            "−9.76%",
+            "0.0×"
+          ]
+        ],
+        "reading_steps": [
+          "Equity return = (EBIT − 32.2) ÷ 330.",
+          "Interest cover below 1.0× means operating profit does not cover interest.",
+          "Once EBIT falls below interest, the equity return turns negative."
+        ],
+        "takeaway": "Leverage amplifies losses: when EBIT no longer covers interest, equity earns a negative return."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "The real risk-free rate is best described as:",
+      "options": [
+        "A rate reflecting time preference for current over future consumption, with no expected inflation and no default risk",
+        "The yield on a 3-month T-bill minus its default premium",
+        "The nominal yield on a 30-year Treasury bond"
+      ],
+      "answer": 0,
+      "explanation": "The real risk-free rate is a theoretical rate on a riskless single-period loan with no inflation. It reflects time preference. The T-bill option mixes in an inflation premium; the 30-year bond includes maturity and inflation premiums.",
+      "solution": [
+        "The real risk-free rate is the theoretical return on a single-period loan with zero expected inflation and zero probability of default.",
+        "Economically it measures time preference: how strongly people prefer consumption now over the same consumption later.",
+        "The other options fail: a T-bill yield contains an inflation premium, and a 30-year Treasury yield contains maturity and inflation premiums."
+      ]
+    },
+    {
+      "id": 2,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A nominal risk-free rate is 6.0% and expected inflation is 2.5%. The exact real risk-free rate is closest to:",
+      "options": [
+        "8.50%",
+        "3.50%",
+        "3.41%"
+      ],
+      "answer": 2,
+      "explanation": "Exact: (1.06 ÷ 1.025) − 1 = 3.41%. The 3.50% figure is the common approximation (6.0 − 2.5), which is close but not exact. 8.50% adds the rates instead of removing inflation.",
+      "solution": [
+        "Exact relation: (1 + nominal) = (1 + real) × (1 + expected inflation).",
+        "Real = 1.060 ÷ 1.025 − 1 = 1.03415 − 1 = 3.41%.",
+        "The shortcut 6.0 − 2.5 = 3.50% is close but not exact. 8.50% wrongly adds the two rates together."
+      ]
+    },
+    {
+      "id": 3,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "Why is a U.S. T-bill yield called a nominal risk-free rate rather than a real rate?",
+      "options": [
+        "It contains no default risk premium",
+        "It contains an inflation premium, so it does not measure the gain in purchasing power",
+        "It is a discount rate rather than a yield"
+      ],
+      "answer": 1,
+      "explanation": "T-bills are essentially free of default risk, which makes them risk-free. Their yield includes expected inflation, so they are nominal. The real return is the nominal yield less inflation.",
+      "solution": [
+        "A T-bill has essentially no default risk, so it is the risk-free benchmark.",
+        "Its yield still includes expected inflation (the inflation premium), so the return it pays is nominal growth, not growth in purchasing power.",
+        "Real return ≈ nominal yield − expected inflation, which is why a T-bill is not a real rate."
+      ]
+    },
+    {
+      "id": 4,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A corporate bond yields 1.5% more than a Treasury of the same maturity, mainly because investors fear the issuer might miss payments. That extra 1.5% is the:",
+      "options": [
+        "Default risk premium",
+        "Liquidity premium",
+        "Maturity risk premium"
+      ],
+      "answer": 0,
+      "explanation": "The concern about missed or late payments is default risk. The premium that compensates for it is the default risk premium. Liquidity and maturity are different risks.",
+      "solution": [
+        "The bond yields 1.5% more than a Treasury of the same maturity, so the spread is 1.5%.",
+        "The reason given is the risk that the issuer misses or delays payments. That is default risk.",
+        "The premium that compensates for default risk is the default risk premium."
+      ]
+    },
+    {
+      "id": 5,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A thinly traded bond might have to be sold at a discount if its owner needs cash quickly. The premium that compensates for this risk is the:",
+      "options": [
+        "Default risk premium",
+        "Inflation premium",
+        "Liquidity premium"
+      ],
+      "answer": 2,
+      "explanation": "The risk of receiving less than fair value for a quick sale is liquidity risk. The compensating premium is the liquidity premium.",
+      "solution": [
+        "The risk described is receiving less than fair value when the bond must be sold quickly. That is liquidity risk.",
+        "The premium that compensates investors for liquidity risk is the liquidity premium."
+      ]
+    },
+    {
+      "id": 6,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Two bonds from the same issuer differ only in maturity: a 2-year and a 30-year. The 30-year yields more mainly because of:",
+      "options": [
+        "Higher default risk",
+        "Maturity risk premium",
+        "A lower real risk-free rate"
+      ],
+      "answer": 1,
+      "explanation": "Longer-term bond prices move more when interest rates change, so the longer bond carries maturity risk and earns a maturity premium. The issuer is the same, so default risk is equal.",
+      "solution": [
+        "Both bonds have the same issuer, so default risk is the same for both.",
+        "Only maturity differs. Longer-term bond prices move more when interest rates change, which is maturity risk.",
+        "So the extra yield on the 30-year bond is the maturity risk premium."
+      ]
+    },
+    {
+      "id": 7,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A bond's nominal required rate is 7.0%. Its real risk-free rate is 2.0%, inflation premium 2.0%, default risk premium 1.5% and liquidity premium 0.5%. The implied maturity premium is:",
+      "options": [
+        "1.0%",
+        "0.5%",
+        "1.5%"
+      ],
+      "answer": 0,
+      "explanation": "Build-up: 7.0 = 2.0 (real) + 2.0 (inflation) + 1.5 (default) + 0.5 (liquidity) + maturity. Maturity = 7.0 − 6.0 = 1.0%.",
+      "solution": [
+        "Build-up: nominal = real risk-free + inflation + default + liquidity + maturity.",
+        "7.0% = 2.0% + 2.0% + 1.5% + 0.5% + maturity premium.",
+        "Maturity premium = 7.0 − 6.0 = 1.0%."
+      ]
+    },
+    {
+      "id": 8,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "If the market rate on 1-year securities is 5%, the opportunity cost of spending $1,000 today instead of saving it for one year is:",
+      "options": [
+        "$0",
+        "$1,050 of additional consumption",
+        "$50 of forgone interest"
+      ],
+      "answer": 2,
+      "explanation": "The interest rate is the opportunity cost of consumption. Saving $1,000 for a year at 5% would earn $50, so spending it today forgoes $50.",
+      "solution": [
+        "Saving $1,000 at 5% for one year earns 1,000 × 0.05 = $50.",
+        "Spending the $1,000 today gives up that $50 of interest. That forgone interest is the opportunity cost of consumption."
+      ]
+    },
+    {
+      "id": 9,
+      "los": "1.a",
+      "source": "added",
+      "difficulty": "medium",
+      "question": "The present value of $1,000 received in 3 years, discounted at 10% a year, is closest to:",
+      "options": [
+        "$700.00",
+        "$751.31",
+        "$909.09"
+      ],
+      "answer": 1,
+      "explanation": "PV = 1,000 ÷ 1.1³ = $751.31. $700 is a simple subtraction (1,000 − 3 × 100) that ignores compounding. $909.09 discounts for only one year.",
+      "solution": [
+        "PV = FV ÷ (1 + r)^N = 1,000 ÷ (1.10)³.",
+        "(1.10)³ = 1.331, so PV = 1,000 ÷ 1.331 = $751.31.",
+        "$909.09 discounts for only one year (1,000 ÷ 1.10). $700 subtracts 3 × $100 without compounding."
+      ]
+    },
+    {
+      "id": 10,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Holding other things equal, which change would raise the equilibrium interest rate on a corporate bond?",
+      "options": [
+        "A higher probability of default",
+        "A lower probability of default",
+        "A lower expected inflation rate"
+      ],
+      "answer": 0,
+      "explanation": "Higher default risk raises the default risk premium and therefore the required rate. A lower default probability or lower expected inflation would both lower the rate.",
+      "solution": [
+        "A higher probability of default raises the default risk premium that lenders require.",
+        "A higher required premium raises the equilibrium interest rate. A lower default probability or lower expected inflation would lower the rate."
+      ]
+    },
+    {
+      "id": 11,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Which of the following is NOT a component in the chapter's build-up of a nominal interest rate?",
+      "options": [
+        "Expected inflation",
+        "Default risk premium",
+        "Expected return on equities"
+      ],
+      "answer": 2,
+      "explanation": "The build-up is: real risk-free rate, inflation premium, default, liquidity and maturity premiums. An equity return is an outcome of an investment, not a component of an interest rate.",
+      "solution": [
+        "The build-up of a nominal rate is: real risk-free rate + inflation premium + default premium + liquidity premium + maturity premium.",
+        "Expected inflation and the default premium are both components.",
+        "An expected return on equities is an outcome of an investment, not a component of an interest rate."
+      ]
+    },
+    {
+      "id": 12,
+      "los": "1.a",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "Which statement about interest rates as discount rates is correct?",
+      "options": [
+        "They convert present values into future nominal inflation",
+        "They convert future cash flows into present-value equivalents",
+        "They always equal the real risk-free rate"
+      ],
+      "answer": 1,
+      "explanation": "A discount rate is used to find the value today of future cash flows. It does not measure inflation and is not necessarily equal to the real risk-free rate.",
+      "solution": [
+        "A discount rate converts future cash flows into their value today: PV = FV ÷ (1 + r)^N.",
+        "It does not measure inflation, and it is not always equal to the real risk-free rate."
+      ]
+    },
+    {
+      "id": 13,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A share bought for €25 pays a €1.50 dividend during the year and is worth €28 at year-end. The holding period return is:",
+      "options": [
+        "18.0%",
+        "12.0%",
+        "6.0%"
+      ],
+      "answer": 0,
+      "explanation": "HPR = (28 + 1.50 − 25) ÷ 25 = 4.50 ÷ 25 = 18.0%. Leaving out the dividend gives 12.0%. Using only the dividend gives 6.0%.",
+      "solution": [
+        "HPR = (P_end + dividend − P_begin) ÷ P_begin.",
+        "HPR = (28 + 1.50 − 25) ÷ 25 = 4.50 ÷ 25 = 0.180 = 18.0%.",
+        "Leaving out the dividend gives 3 ÷ 25 = 12%."
+      ]
+    },
+    {
+      "id": 14,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Returns of +10% in Year 1 and −5% in Year 2 give a two-year holding period return of:",
+      "options": [
+        "5.0%",
+        "4.0%",
+        "4.5%"
+      ],
+      "answer": 2,
+      "explanation": "Compound: 1.10 × 0.95 − 1 = 4.5%. The simple sum is 5.0%, which ignores compounding.",
+      "solution": [
+        "Compound the two returns: (1 + 0.10) × (1 − 0.05) = 1.10 × 0.95 = 1.045.",
+        "Two-year HPR = 1.045 − 1 = 4.5%.",
+        "Adding the returns (5.0%) ignores compounding."
+      ]
+    },
+    {
+      "id": 15,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Annual returns of +20%, −10% and +15% for a fund. The compound annual (geometric) return is closest to:",
+      "options": [
+        "8.33%",
+        "7.49%",
+        "6.67%"
+      ],
+      "answer": 1,
+      "explanation": "Geometric mean = (1.20 × 0.90 × 1.15)^(1/3) − 1 = 1.242^(1/3) − 1 = 7.49%. The arithmetic mean, 8.33%, overstates the compound rate.",
+      "solution": [
+        "Geometric mean = [(1 + R₁)(1 + R₂)(1 + R₃)]^(1/3) − 1.",
+        "Product = 1.20 × 0.90 × 1.15 = 1.242.",
+        "1.242^(1/3) = 1.0749, so the geometric mean = 7.49%.",
+        "The arithmetic mean, (20 − 10 + 15) ÷ 3 = 8.33%, overstates the compound rate."
+      ]
+    },
+    {
+      "id": 16,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "Which mean best measures the average annual return an investor actually earned on a portfolio that compounded over several years?",
+      "options": [
+        "Geometric mean",
+        "Arithmetic mean",
+        "Harmonic mean"
+      ],
+      "answer": 0,
+      "explanation": "The geometric mean is the compound rate that reproduces the actual ending value. The harmonic mean is for average cost with fixed periodic purchases.",
+      "solution": [
+        "The question asks for the compound annual rate that reproduces the actual ending value.",
+        "That is the geometric mean. The arithmetic mean overstates compound growth when returns vary, and the harmonic mean is for average cost from fixed-amount purchases."
+      ]
+    },
+    {
+      "id": 17,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "The harmonic mean of 2 and 4 is:",
+      "options": [
+        "3.00",
+        "2.50",
+        "2.67"
+      ],
+      "answer": 2,
+      "explanation": "Harmonic mean = 2 ÷ (1/2 + 1/4) = 2 ÷ 0.75 = 2.67. The arithmetic mean, 3.00, is higher, as expected.",
+      "solution": [
+        "Harmonic mean = N ÷ Σ(1 ÷ X).",
+        "= 2 ÷ (1/2 + 1/4) = 2 ÷ 0.75 = 2.67.",
+        "The arithmetic mean, 3.00, is higher, as expected when values are unequal."
+      ]
+    },
+    {
+      "id": 18,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "An investor buys $500 of fund shares each month at $20, $25 and $50 per share. The average cost per share is closest to:",
+      "options": [
+        "$31.67",
+        "$27.27",
+        "$25.00"
+      ],
+      "answer": 1,
+      "explanation": "Shares = 500/20 + 500/25 + 500/50 = 55. Total cost = $1,500. Average cost = 1,500 ÷ 55 = $27.27. The simple average price of $31.67 overstates the cost.",
+      "solution": [
+        "Shares bought each month = $500 ÷ price: 500 ÷ 20 = 25, 500 ÷ 25 = 20, 500 ÷ 50 = 10.",
+        "Total shares = 55. Total cost = 3 × $500 = $1,500.",
+        "Average cost per share = 1,500 ÷ 55 = $27.27 (the harmonic mean of the prices).",
+        "The simple average price, (20 + 25 + 50) ÷ 3 = $31.67, overstates the true cost."
+      ]
+    },
+    {
+      "id": 19,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A single extreme outlier distorts an average of returns. To reduce its influence while keeping most of the data, the best choice is:",
+      "options": [
+        "Winsorized mean",
+        "Harmonic mean",
+        "Geometric mean"
+      ],
+      "answer": 0,
+      "explanation": "A winsorized mean replaces extreme values with the nearest remaining values, which limits the outlier's effect while keeping every observation. The other two means do not address outliers.",
+      "solution": [
+        "The problem is that one extreme value distorts the average.",
+        "A winsorized mean replaces the extreme value with the nearest remaining value. It keeps every observation but limits the outlier's effect.",
+        "The harmonic and geometric means do not address outliers."
+      ]
+    },
+    {
+      "id": 20,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "For positive, unequal values, which ordering of the three means is correct?",
+      "options": [
+        "Arithmetic < geometric < harmonic",
+        "Geometric < harmonic < arithmetic",
+        "Harmonic < geometric < arithmetic"
+      ],
+      "answer": 2,
+      "explanation": "For positive values that are not all equal: harmonic < geometric < arithmetic.",
+      "solution": [
+        "For positive values that are not all equal: harmonic mean < geometric mean < arithmetic mean.",
+        "Check with 2 and 4: harmonic = 2.67, geometric = √8 = 2.83, arithmetic = 3.00, so 2.67 < 2.83 < 3.00."
+      ]
+    },
+    {
+      "id": 21,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A stock returns +50% in Year 1 and −50% in Year 2. The geometric mean return is closest to:",
+      "options": [
+        "0.00%",
+        "−13.40%",
+        "−25.00%"
+      ],
+      "answer": 1,
+      "explanation": "Geometric mean = √(1.50 × 0.50) − 1 = √0.75 − 1 = −13.40%. The arithmetic mean is 0%, which is misleading: $100 falls to $75.",
+      "solution": [
+        "Geometric mean = [(1 + 0.50)(1 − 0.50)]^(1/2) − 1 = √0.75 − 1.",
+        "√0.75 = 0.8660, so the geometric mean = −13.40%.",
+        "The arithmetic mean is (50 − 50) ÷ 2 = 0%, which is misleading: $100 → $150 → $75."
+      ]
+    },
+    {
+      "id": 22,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "Four semiannual holding period returns are 2.0%, 0.5%, −1.0% and 1.5%. The annual rate of return is closest to:",
+      "options": [
+        "1.49%",
+        "0.74%",
+        "1.48%"
+      ],
+      "answer": 0,
+      "explanation": "The per-half-year geometric mean is 0.74%. Four half-years make two years, so the annual rate uses root 2: 1.49%. Doubling the half-year rate (1.48%) ignores compounding.",
+      "solution": [
+        "Geometric mean per half-year: [1.02 × 1.005 × 0.99 × 1.015]^(1/4) − 1 = 0.74%.",
+        "Product = 1.030072. Four half-years are two years, so the annual rate uses root 2: 1.030072^(1/2) − 1 = 1.49%.",
+        "Doubling the half-year geometric mean (0.74% × 2 = 1.48%) ignores compounding across the two years."
+      ]
+    },
+    {
+      "id": 23,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "Three annual returns of exactly 10% each. The arithmetic and geometric means are:",
+      "options": [
+        "Geometric lower than 10%",
+        "Geometric higher than 10%",
+        "Both 10%"
+      ],
+      "answer": 2,
+      "explanation": "The geometric mean equals the arithmetic mean only when all observations are equal. With no variability, both are 10%.",
+      "solution": [
+        "The geometric mean equals the arithmetic mean only when every observation is the same.",
+        "All three returns are 10%, so both means are 10%."
+      ]
+    },
+    {
+      "id": 24,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "When some returns are negative, the correct way to compute a harmonic mean is:",
+      "options": [
+        "Drop the negative returns",
+        "Apply the harmonic mean to (1 + return) values, then subtract 1",
+        "Replace the negative returns with zero"
+      ],
+      "answer": 1,
+      "explanation": "The chapter applies the harmonic mean to (1 + return) for each period and subtracts 1 from the result. Dropping or zeroing returns changes the data.",
+      "solution": [
+        "A negative return cannot be used directly in a harmonic mean.",
+        "Convert each return to (1 + return), take the harmonic mean of those values, then subtract 1.",
+        "Dropping or zeroing the negative returns changes the data and gives a wrong answer."
+      ]
+    },
+    {
+      "id": 25,
+      "los": "1.b",
+      "source": "added",
+      "difficulty": "hard",
+      "question": "An asset gains 10% in Year 1 and loses 10% in Year 2. Starting with $100, the ending value is:",
+      "options": [
+        "$99",
+        "$100",
+        "$101"
+      ],
+      "answer": 0,
+      "explanation": "The arithmetic mean is 0%, which suggests no change. Compounding gives 100 × 1.10 × 0.90 = $99. The gap is volatility drag.",
+      "solution": [
+        "Arithmetic mean = (10% − 10%) ÷ 2 = 0%, which suggests no change.",
+        "Compounding: 100 × 1.10 = 110, then 110 × 0.90 = 99.",
+        "The ending value is $99. The gap between the arithmetic result and the compound result is volatility drag."
+      ]
+    },
+    {
+      "id": 26,
+      "los": "1.b",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A key statistical property of the arithmetic mean return is that it is:",
+      "options": [
+        "Always the lowest of the three means",
+        "Immune to outliers",
+        "An unbiased estimator of the true mean of the return distribution"
+      ],
+      "answer": 2,
+      "explanation": "The arithmetic mean is an unbiased estimator of the distribution's true mean. It is not the lowest mean, and it is affected by outliers.",
+      "solution": [
+        "The arithmetic mean is an unbiased estimator of the true mean of the return distribution.",
+        "It is not always the lowest of the three means, and it is affected by outliers."
+      ]
+    },
+    {
+      "id": 27,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "An investor deposits $1,000 at t = 0 and $500 at t = 1. The account is worth $1,650 at t = 2. The money-weighted return (IRR) is closest to:",
+      "options": [
+        "4.50%",
+        "5.86%",
+        "7.00%"
+      ],
+      "answer": 1,
+      "explanation": "Solve −1,000 − 500 ÷ (1 + r) + 1,650 ÷ (1 + r)² = 0, which gives r = 5.86%. Use the calculator's IRR function with CF₀ = −1,000, CF₁ = −500, CF₂ = +1,650.",
+      "solution": [
+        "Money-weighted return = IRR, the rate r at which NPV of all cash flows = 0.",
+        "−1,000 − 500 ÷ (1 + r) + 1,650 ÷ (1 + r)² = 0.",
+        "Let x = 1 ÷ (1 + r): 1,650x² − 500x − 1,000 = 0, so x = 0.94462 and r = 1 ÷ 0.94462 − 1 = 5.86%.",
+        "Calculator check: CF₀ = −1,000, CF₁ = −500, CF₂ = +1,650, then compute IRR."
+      ]
+    },
+    {
+      "id": 28,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "The time-weighted return is best described as:",
+      "options": [
+        "The rate at which $1 compounds over the performance horizon",
+        "The IRR of all cash flows",
+        "The arithmetic average of subperiod HPRs"
+      ],
+      "answer": 0,
+      "explanation": "The time-weighted return measures compound growth of $1. It is built from chain-linked subperiod HPRs. It is not an IRR, and it is not an arithmetic average.",
+      "solution": [
+        "Time-weighted return is built by chain-linking subperiod HPRs, so it measures the compound growth of $1.",
+        "It is not an IRR (that is the money-weighted return), and it is not an arithmetic average."
+      ]
+    },
+    {
+      "id": 29,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A fund manager has no control over client deposits and withdrawals. The most appropriate performance measure is:",
+      "options": [
+        "Money-weighted return",
+        "Harmonic mean return",
+        "Time-weighted return"
+      ],
+      "answer": 2,
+      "explanation": "When the manager does not control cash flows, the time-weighted return removes the distortion from client timing and measures the manager's investment decisions.",
+      "solution": [
+        "The manager does not control when clients deposit or withdraw.",
+        "Time-weighted return removes the effect of those flows, so it measures the manager's investment decisions."
+      ]
+    },
+    {
+      "id": 30,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "An investor decides when to add and withdraw money from a portfolio she controls. The most appropriate measure of her personal return is:",
+      "options": [
+        "Time-weighted return",
+        "Money-weighted return",
+        "Geometric mean return"
+      ],
+      "answer": 1,
+      "explanation": "When the investor controls the timing and size of cash flows, the money-weighted return reflects the results of those decisions.",
+      "solution": [
+        "The investor controls the size and timing of her own contributions and withdrawals.",
+        "Money-weighted return (IRR) reflects the return on the money she actually had invested, including her timing decisions."
+      ]
+    },
+    {
+      "id": 31,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Funds are added to a portfolio just before a period of poor returns. Compared with the time-weighted return, the money-weighted return will be:",
+      "options": [
+        "Lower",
+        "Higher",
+        "Identical"
+      ],
+      "answer": 0,
+      "explanation": "More money is in the portfolio during the poor period, so it gets more weight in the money-weighted return, pulling that return down.",
+      "solution": [
+        "Money added just before poor returns sits in the portfolio during the weak period.",
+        "The money-weighted return gives the weak period more weight, so it falls below the time-weighted return."
+      ]
+    },
+    {
+      "id": 32,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "In the chapter example, the money-weighted return is 13.86% and the time-weighted return is 15.84%. The main reason MWR is lower is:",
+      "options": [
+        "Dividends were excluded from the MWR calculation",
+        "The TWR used arithmetic averaging",
+        "Year 2 had more money invested and its HPR was 10%, lower than Year 1's 22%"
+      ],
+      "answer": 2,
+      "explanation": "The second year had more capital invested, and that year's return (10%) was lower than the first year's (22%). MWR gives that weak year more weight, so it is lower.",
+      "solution": [
+        "Year 1: HPR 22% on $100. Year 2: HPR 10% on $240 (two shares).",
+        "More capital was exposed in Year 2, the weaker year, so the money-weighted return gives it more weight: 13.86% < 15.84%.",
+        "Both measures include dividends. The methods differ in how they weight the periods, not in dividends."
+      ]
+    },
+    {
+      "id": 33,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Two subperiods have HPRs of +25% and −10%. The time-weighted return over both periods is:",
+      "options": [
+        "15.0%",
+        "12.5%",
+        "7.5%"
+      ],
+      "answer": 1,
+      "explanation": "Chain-link the subperiods: 1.25 × 0.90 = 1.125, so the return is 12.5%. Adding the HPRs (15%) is wrong.",
+      "solution": [
+        "Chain-link the subperiods: (1 + 0.25) × (1 − 0.10) = 1.25 × 0.90 = 1.125.",
+        "TWR = 1.125 − 1 = 12.5%.",
+        "Adding the HPRs (15%) is wrong."
+      ]
+    },
+    {
+      "id": 34,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "An investor buys $100 at t = 0. At t = 1 she invests another $50, and at t = 2 the account is worth $170. The money-weighted return (IRR) is closest to:",
+      "options": [
+        "7.76%",
+        "6.00%",
+        "8.00%"
+      ],
+      "answer": 0,
+      "explanation": "Solve −100 − 50 ÷ (1 + r) + 170 ÷ (1 + r)² = 0, which gives r = 7.76%. Entering CF₀ = −100, CF₁ = −50, CF₂ = +170 and computing IRR gives the same answer.",
+      "solution": [
+        "NPV = 0: −100 − 50 ÷ (1 + r) + 170 ÷ (1 + r)² = 0.",
+        "Let x = 1 ÷ (1 + r): 170x² − 50x − 100 = 0. The positive root is x = 0.92800.",
+        "r = 1 ÷ 0.928 − 1 = 7.76%.",
+        "Calculator check: CF₀ = −100, CF₁ = −50, CF₂ = +170, then compute IRR."
+      ]
+    },
+    {
+      "id": 35,
+      "los": "1.c",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A money-weighted return is the discount rate at which:",
+      "options": [
+        "The geometric mean equals the arithmetic mean",
+        "Total dollars gained equal total dollars invested",
+        "The present value of inflows equals the present value of outflows (NPV = 0)"
+      ],
+      "answer": 2,
+      "explanation": "The money-weighted return is the IRR, which is the rate that sets the NPV of all cash flows to zero.",
+      "solution": [
+        "A money-weighted return is the IRR.",
+        "The IRR is the rate that sets the present value of inflows equal to the present value of outflows, that is, NPV = 0.",
+        "The other options describe a mean comparison and a simple gain ratio, neither of which is an IRR."
+      ]
+    },
+    {
+      "id": 36,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "Using compounded annualization, a 90-day holding period return of 0.75% is closest to:",
+      "options": [
+        "0.75%",
+        "3.08%",
+        "3.04%"
+      ],
+      "answer": 1,
+      "explanation": "Annualized = (1.0075)^(365/90) − 1 = 3.08%. The 3.04% figure comes from simple multiplication (0.75% × 365/90), which the chapter does not use.",
+      "solution": [
+        "Compounded annualization: (1 + HPR)^(365 ÷ days) − 1.",
+        "= (1.0075)^(365 ÷ 90) − 1 = (1.0075)^4.056 − 1 = 1.03077 − 1 = 3.08%.",
+        "Simple multiplication (0.75% × 365 ÷ 90 = 3.04%) is not the method used here."
+      ]
+    },
+    {
+      "id": 37,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "A 500-day government bill is bought for $970 and redeemed at maturity for $1,000. The annualized return is closest to:",
+      "options": [
+        "2.25%",
+        "3.09%",
+        "6.18%"
+      ],
+      "answer": 0,
+      "explanation": "HPR = 1,000 ÷ 970 − 1 = 3.09%. Annualized = (1.0309)^(365/500) − 1 = 2.25%. The 3.09% is the HPR for 500 days, not the annual rate.",
+      "solution": [
+        "HPR over 500 days = 1,000 ÷ 970 − 1 = 3.09%.",
+        "Annualize: (1.0309)^(365 ÷ 500) − 1 = (1.0309)^0.73 − 1 = 2.25%.",
+        "The 3.09% is the 500-day return, not the annual rate."
+      ]
+    },
+    {
+      "id": 38,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A stock is bought at $100 and sold one year later at $120. The continuously compounded return is closest to:",
+      "options": [
+        "20.00%",
+        "16.67%",
+        "18.23%"
+      ],
+      "answer": 2,
+      "explanation": "R_cc = ln(120 ÷ 100) = ln(1.20) = 18.23%. The 20% figure is the discrete return, and 16.67% is 20 ÷ 120.",
+      "solution": [
+        "Continuously compounded return = ln(ending value ÷ beginning value) = ln(120 ÷ 100) = ln(1.20).",
+        "ln(1.20) = 0.18232, so the return is 18.23%.",
+        "The 20% figure is the discrete return, and 16.67% is 20 ÷ 120."
+      ]
+    },
+    {
+      "id": 39,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "The continuously compounded return on an investment that moves from $50 to $55 is closest to:",
+      "options": [
+        "10.00%",
+        "9.53%",
+        "9.09%"
+      ],
+      "answer": 1,
+      "explanation": "R_cc = ln(55 ÷ 50) = ln(1.10) = 9.53%. The discrete return is 10.00%, and the continuous rate is slightly lower.",
+      "solution": [
+        "ln(55 ÷ 50) = ln(1.10) = 0.09531, so the return is 9.53%.",
+        "The discrete return is 10%. The continuously compounded rate is a little lower."
+      ]
+    },
+    {
+      "id": 40,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Continuously compounded returns are 3% in Year 1 and 4% in Year 2. Over the two years, the continuously compounded return is:",
+      "options": [
+        "7.00%",
+        "7.25%",
+        "6.00%"
+      ],
+      "answer": 0,
+      "explanation": "Continuously compounded returns are additive: 3% + 4% = 7.00%. The equivalent discrete return is e^0.07 − 1 = 7.25%, which is different because it is not continuously compounded.",
+      "solution": [
+        "Continuously compounded returns are additive across periods.",
+        "Total = 3% + 4% = 7.00%.",
+        "The discrete equivalent, e^0.07 − 1 = 7.25%, is a different quantity."
+      ]
+    },
+    {
+      "id": 41,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "For the same stated annual rate and a one-year cash flow, which compounding frequency gives the lowest present value?",
+      "options": [
+        "Annual",
+        "Monthly",
+        "Daily"
+      ],
+      "answer": 2,
+      "explanation": "More frequent compounding raises the effective rate and lowers the PV. Daily compounding gives the lowest PV of the three: $941.77, against $943.40 for annual compounding.",
+      "solution": [
+        "PV = 1,000 ÷ (1 + 0.06 ÷ m)^m.",
+        "Annual (m = 1): $943.40. Monthly (m = 12): $941.91. Daily (m = 365): $941.77.",
+        "More frequent compounding raises the effective rate, so PV falls. Daily compounding gives the lowest PV."
+      ]
+    },
+    {
+      "id": 42,
+      "los": "1.d",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "The present value of $1,000 received one year from now, at a 6% stated annual rate compounded monthly, is closest to:",
+      "options": [
+        "$943.40",
+        "$941.91",
+        "$940.00"
+      ],
+      "answer": 1,
+      "explanation": "PV = 1,000 ÷ (1 + 0.06 ÷ 12)^12 = $941.91. The $943.40 figure is for annual compounding.",
+      "solution": [
+        "m = 12 and r = 0.06: PV = 1,000 ÷ (1 + 0.06 ÷ 12)^12 = 1,000 ÷ (1.005)^12.",
+        "(1.005)^12 = 1.06168, so PV = 1,000 ÷ 1.06168 = $941.91."
+      ]
+    },
+    {
+      "id": 43,
+      "los": "1.d",
+      "source": "added",
+      "difficulty": "medium",
+      "question": "A 6% stated annual rate compounded monthly has an effective annual rate of:",
+      "options": [
+        "6.17%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": 0,
+      "explanation": "EAR = (1 + 0.06 ÷ 12)^12 − 1 = 6.17%. The stated 6.00% understates the annual growth because of monthly compounding.",
+      "solution": [
+        "EAR = (1 + 0.06 ÷ 12)^12 − 1 = 1.06168 − 1 = 6.17%.",
+        "The stated 6.00% understates the effective annual growth."
+      ]
+    },
+    {
+      "id": 44,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "easy",
+      "question": "A fund reports an 8% return after trading commissions but before management and administration fees. This is its:",
+      "options": [
+        "Net return",
+        "Pretax nominal return",
+        "Gross return"
+      ],
+      "answer": 2,
+      "explanation": "Gross return is before management and administration fees but after the commissions and costs needed to generate the return. Net return is after those fees. Pretax refers to taxes.",
+      "solution": [
+        "Gross return is before management and administration fees, but after the trading commissions and costs needed to generate the return.",
+        "Net return is after those fees. The option about taxes does not fit a question about fees."
+      ]
+    },
+    {
+      "id": 45,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A fund has a gross return of 8.00%, and its management and administration fees are 0.75% of assets. The net return is:",
+      "options": [
+        "8.75%",
+        "7.25%",
+        "7.00%"
+      ],
+      "answer": 1,
+      "explanation": "Net return = 8.00% − 0.75% = 7.25%. The fee is subtracted from the gross return, not added to it.",
+      "solution": [
+        "Net return = gross return − management and administration fees.",
+        "= 8.00% − 0.75% = 7.25%.",
+        "Fees reduce the return, so they are subtracted, not added."
+      ]
+    },
+    {
+      "id": 46,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "Pretax nominal return is 7% and inflation is 2%. The exact real return is closest to:",
+      "options": [
+        "4.90%",
+        "5.00%",
+        "4.76%"
+      ],
+      "answer": 0,
+      "explanation": "Exact: 1.07 ÷ 1.02 − 1 = 4.90%. The 5.00% figure is the approximation. 4.76% comes from dividing the wrong way (0.05 ÷ 1.05).",
+      "solution": [
+        "Exact real return = (1 + nominal) ÷ (1 + inflation) − 1.",
+        "= 1.07 ÷ 1.02 − 1 = 1.04902 − 1 = 4.90%.",
+        "The 5.00% (7 − 2) is only an approximation. The 4.76% figure comes from 0.05 ÷ 1.05, which divides by the wrong term."
+      ]
+    },
+    {
+      "id": 47,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "A nominal return of 9% with 3% inflation gives an exact real return closest to:",
+      "options": [
+        "6.00%",
+        "5.50%",
+        "5.83%"
+      ],
+      "answer": 2,
+      "explanation": "Real return = 1.09 ÷ 1.03 − 1 = 5.83%. The approximation, 9 − 3 = 6.00%, overstates it slightly.",
+      "solution": [
+        "Real return = 1.09 ÷ 1.03 − 1 = 1.05825 − 1 = 5.83%.",
+        "The approximation 9 − 3 = 6.00% overstates it slightly."
+      ]
+    },
+    {
+      "id": 48,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "medium",
+      "question": "An investor in a 30% tax bracket earns 6% pretax interest income. The after-tax nominal return is:",
+      "options": [
+        "3.00%",
+        "4.20%",
+        "6.00%"
+      ],
+      "answer": 1,
+      "explanation": "After-tax return = 6% × (1 − 0.30) = 4.20%. The 3.00% figure applies a 50% rate by mistake.",
+      "solution": [
+        "After-tax return = pretax return × (1 − tax rate) = 6% × (1 − 0.30).",
+        "= 6% × 0.70 = 4.20%.",
+        "A 3.00% answer would apply a 50% rate, which is a mistake."
+      ]
+    },
+    {
+      "id": 49,
+      "los": "1.e",
+      "source": "chapter",
+      "difficulty": "hard",
+      "question": "A fund invests $100 of its own money and borrows $50 at 4%. The asset returns 10%. The leveraged return on the $100 invested is:",
+      "options": [
+        "13.0%",
+        "10.0%",
+        "15.0%"
+      ],
+      "answer": 0,
+      "explanation": "Leveraged return = [10% × 150 − 4% × 50] ÷ 100 = (15 − 2) ÷ 100 = 13.0%. Forgetting the interest gives 15%.",
+      "solution": [
+        "Leveraged return = [r × (V₀ + V_B) − r_B × V_B] ÷ V₀, with V₀ = 100, V_B = 50, r_B = 4%, r = 10%.",
+        "Gain on the total asset: 10% × (100 + 50) = $15.",
+        "Interest on the borrowing: 4% × 50 = $2.",
+        "Net gain = 15 − 2 = $13. Return on the $100 invested = 13 ÷ 100 = 13.0%."
+      ]
+    },
+    {
+      "id": 50,
+      "los": "1.e",
+      "source": "added",
+      "difficulty": "hard",
+      "question": "Same fund: $100 of own money, $50 borrowed at 4%. If the asset falls 10%, the leveraged return on the $100 invested is:",
+      "options": [
+        "−10%",
+        "−15%",
+        "−17%"
+      ],
+      "answer": 2,
+      "explanation": "Leveraged return = [−10% × 150 − 4% × 50] ÷ 100 = (−15 − 2) ÷ 100 = −17%. The loss on the investor's cash is larger than the asset's loss, and the interest is paid too.",
+      "solution": [
+        "Loss on the total asset: −10% × (100 + 50) = −$15.",
+        "Interest is still owed: 4% × 50 = $2.",
+        "Net result = −15 − 2 = −$17. Return on the $100 invested = −17%.",
+        "The asset fell 10%, but the investor's own cash lost 17%. Leverage magnifies losses."
+      ]
+    }
+  ],
+  "reference_statements": [
+    {
+      "title": "Northfield Components: balance sheet at 31 Dec 2025 ($ millions)",
+      "caption": "Fictional company used in every example. Figures are for teaching only and do not describe any real firm.",
+      "columns": [
+        "Line item",
+        "$ millions"
+      ],
+      "rows": [
+        [
+          "Cash & equivalents",
+          "60"
+        ],
+        [
+          "Short-term T-bills",
+          "40"
+        ],
+        [
+          "Accounts receivable",
+          "130"
+        ],
+        [
+          "Inventory",
+          "170"
+        ],
+        [
+          "Total current assets",
+          "400"
+        ],
+        [
+          "Property, plant & equipment (net)",
+          "500"
+        ],
+        [
+          "Long-term investments",
+          "100"
+        ],
+        [
+          "Total assets",
+          "1,000"
+        ],
+        [
+          "Accounts payable",
+          "110"
+        ],
+        [
+          "Short-term bank loan (floating)",
+          "60"
+        ],
+        [
+          "Total current liabilities",
+          "170"
+        ],
+        [
+          "Term loan due 2029 (floating)",
+          "150"
+        ],
+        [
+          "Bonds due 2030 (5.00% fixed)",
+          "200"
+        ],
+        [
+          "Bonds due 2040 (6.00% fixed)",
+          "150"
+        ],
+        [
+          "Total liabilities",
+          "670"
+        ],
+        [
+          "Shareholders' equity",
+          "330"
+        ],
+        [
+          "Total liabilities & equity",
+          "1,000"
+        ]
+      ],
+      "reading_steps": [
+        "Assets must equal liabilities plus equity: 1,000 = 670 + 330.",
+        "Current ratio = 400 ÷ 170 = 2.35. Quick ratio (excluding inventory) = (60 + 40 + 130) ÷ 170 = 1.35.",
+        "Interest-bearing debt = 60 + 150 + 200 + 150 = $560m. Debt-to-equity = 560 ÷ 330 = 1.70."
+      ]
+    },
+    {
+      "title": "Northfield Components: income statement, 2025 ($ millions)",
+      "caption": "Fictional company. Interest expense equals the annual interest on the debt schedule below.",
+      "columns": [
+        "Line item",
+        "$ millions"
+      ],
+      "rows": [
+        [
+          "Revenue",
+          "1,200.0"
+        ],
+        [
+          "Cost of goods sold",
+          "(780.0)"
+        ],
+        [
+          "Gross profit",
+          "420.0"
+        ],
+        [
+          "Selling, general & administrative",
+          "(220.0)"
+        ],
+        [
+          "Operating profit (EBIT)",
+          "200.0"
+        ],
+        [
+          "Interest expense",
+          "(32.2)"
+        ],
+        [
+          "Pre-tax income",
+          "167.8"
+        ],
+        [
+          "Income tax at 25%",
+          "(41.95)"
+        ],
+        [
+          "Net income",
+          "125.85"
+        ]
+      ],
+      "reading_steps": [
+        "Read top to bottom: each subtotal is the line above it plus or minus the next item.",
+        "EBIT (200) is the return the business earns on its assets before paying lenders.",
+        "Interest expense of 32.2 is the total from the debt schedule below."
+      ]
+    },
+    {
+      "title": "Northfield Components: debt schedule and required returns",
+      "caption": "31 Dec 2025, $ millions. Required return = the rate each lender requires for that instrument.",
+      "columns": [
+        "Instrument",
+        "Amount",
+        "Rate",
+        "Years to maturity",
+        "Annual interest"
+      ],
+      "rows": [
+        [
+          "Short-term bank loan (floating)",
+          "60",
+          "6.50%",
+          "<1",
+          "3.9"
+        ],
+        [
+          "Term loan due 2029 (floating)",
+          "150",
+          "6.20%",
+          "4",
+          "9.3"
+        ],
+        [
+          "Bonds due 2030 (fixed)",
+          "200",
+          "5.00%",
+          "5",
+          "10.0"
+        ],
+        [
+          "Bonds due 2040 (fixed)",
+          "150",
+          "6.00%",
+          "15",
+          "9.0"
+        ],
+        [
+          "Total / weighted average",
+          "560",
+          "5.75%",
+          "",
+          "32.2"
+        ]
+      ],
+      "reading_steps": [
+        "Annual interest = amount × rate (for example, 150 × 6.20% = 9.3).",
+        "Weighted average rate = 32.2 ÷ 560 = 5.75%.",
+        "Floating-rate debt reprices when the base rate moves; fixed-rate bonds do not."
+      ]
+    }
+  ]
+}

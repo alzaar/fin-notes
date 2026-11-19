@@ -1,0 +1,20 @@
+{
+  "site_title": "CFA Level I · Study Notes",
+  "site_intro": "Pick a chapter to open its study pack: concepts by learning outcome, worked examples, financial sheets and practice questions.",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Rates and Returns",
+      "description": "Interest rates, return measures, annualized and continuously compounded returns.",
+      "folder": "chapter-1",
+      "content": "chapter-1/chapter-1-content.json"
+    },
+    {
+      "number": 2,
+      "title": "Time Value of Money",
+      "description": "Coming soon.",
+      "folder": null,
+      "content": null
+    }
+  ]
+}
